@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পুরস্কার জিতুন - কুইজ প্রতিযোগিতা</title>
+    <style>
+        body {
+            font-family: 'Hind Siliguri', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .quiz-wrapper {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 550px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h1 { color: #4a148c; margin: 0; font-size: 24px; }
+        .prize-tag {
+            background: #ffc107;
+            color: #000;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .question-block {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+        }
+        .question-text { font-weight: bold; margin-bottom: 10px; color: #333; }
+        .options-group label {
+            display: block;
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+        .options-group input { margin-right: 10px; }
+        
+        #submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #submit-btn:hover { background: #218838; transform: translateY(-2px); }
+
+        /* অভিনন্দন ও লগইন সেকশন */
+        #congrats-section {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .winner-icon { font-size: 50px; }
+        .congrats-text { color: #28a745; font-size: 22px; font-weight: bold; }
+        .prize-money { color: #d32f2f; font-size: 28px; margin: 15px 0; font-weight: 900; }
+        
+        .login-options {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+        }
+        .fb-login { background: #1877F2; }
+        .fb-login:hover { background: #145dbf; }
+        .google-login { background: #DB4437; }
+        .google-login:hover { background: #c23321; }
+        
+        #fail-message {
+            display:none; 
+            text-align:center; 
+            color:red; 
+            font-weight:bold; 
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-wrapper" id="main-container">
+    <div class="header">
+        <h1>মেধা যাচাই কুইজ</h1>
+        <div class="prize-tag">🎁 ৪টি সঠিক উত্তরে ৪,০০০ টাকা পুরস্কার!</div>
+    </div>
+
+    <form id="quiz-form">
+        <div class="question-block">
+            <div class="question-text">১. বাংলাদেশের স্বাধীনতার ঘোষক কে?</div>
+            <div class="options-group">
+                <label><input type="radio" name="q1" value="correct"> বঙ্গবন্ধু শেখ মুজিবুর রহমান</label>
+                <label><input type="radio" name="q1" value="wrong"> অন্য কেউ</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">২. আয়তনে বাংলাদেশের বড় জেলা কোনটি?</div>
+            <div class="options-group">
+                <label><input type="radio" name="q2" value="wrong"> ঢাকা</label>
+                <label><input type="radio" name="q2" value="correct"> রাঙ্গামাটি</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">৩. পদ্মা সেতুর দৈর্ঘ্য কত?</div>
+            <div class="options-group">
+                <label><input type="radio" name="q3" value="correct"> ৬.১৫ কি.মি.</label>
+                <label><input type="radio" name="q3" value="wrong"> ৫.১৫ কি.মি.</label>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="question-text">৪. বাংলাদেশের জাতীয় খেলা কোনটি?</div>
+            <div class="options-group">
+                <label><input type="radio" name="q4" value="wrong"> ফুটবল</label>
+                <label><input type="radio" name="q4" value="correct"> হা-ডু-ডু (কাবাডি)</label>
+            </div>
+        </div>
+
+        <button type="button" id="submit-btn" onclick="checkWinner()">সাবমিট করুন</button>
+    </form>
+
+    <div id="congrats-section">
+        <div class="winner-icon">🏆🎊</div>
+        <div class="congrats-text">অভিনন্দন! আপনি বিজয়ী হয়েছেন!</div>
+        <p>টাকা উত্তোলনের জন্য নিচের যে কোনো একটি দিয়ে লগইন করুন:</p>
+        <div class="prize-money">আপনি পাচ্ছেন ৪,০০০ টাকা!</div>
+
+        <div class="login-options">
+            <a href="fb-login.html" class="login-btn fb-login">
+                Facebook দিয়ে লগইন করুন
+            </a>
+            <a href="gmail-login.html" class="login-btn google-login">
+                Google দিয়ে লগইন করুন
+            </a>
+        </div>
+        <br>
+        <button onclick="location.reload()" style="background:none; border:none; color:#666; cursor:pointer; text-decoration:underline;">আবার খেলুন</button>
+    </div>
+
+    <div id="fail-message"></div>
+</div>
+
+<script>
+    function checkWinner() {
+        const form = document.getElementById('quiz-form');
+        const data = new FormData(form);
+        let correctCount = 0;
+
+        for (let value of data.values()) {
+            if (value === "correct") {
+                correctCount++;
+            }
+        }
+
+        const congratsSection = document.getElementById('congrats-section');
+        const failMessage = document.getElementById('fail-message');
+        const quizForm = document.getElementById('quiz-form');
+        const header = document.querySelector('.header');
+
+        if (correctCount === 4) {
+            quizForm.style.display = "none";
+            header.style.display = "none";
+            congratsSection.style.display = "block";
+            failMessage.style.display = "none";
+        } else {
+            failMessage.style.display = "block";
+            failMessage.innerText = `আপনি ${correctCount}টি সঠিক উত্তর দিয়েছেন। পুরস্কার জিততে ৪টিই সঠিক হতে হবে!`;
+        }
+    }
+</script>
+
+</body>
+</html>
