@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>কুইজ অংশগ্রহণ করে জিতে নিন আকর্ষণীয় পুরুষ্কার</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --bg: #f1f5f9; --card: #ffffff; --text: #1e293b; }
+        :root { --primary: #2563eb; --bg: #f1f5f9; --card: #ffffff; --text: #1e293b; --accent: #f59e0b; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
         body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; }
         .container { width: 100%; max-width: 480px; background: var(--card); min-height: 100vh; box-shadow: 0 0 15px rgba(0,0,0,0.1); position: relative; }
@@ -15,6 +15,23 @@
         #logo { width: 65px; height: 65px; border-radius: 50%; border: 2px solid #fff; margin-bottom: 8px; object-fit: cover; }
         
         .winner-btn-nav { background: #ffd700; color: #000; padding: 10px 20px; border-radius: 25px; font-weight: bold; border: none; cursor: pointer; margin-top: 10px; }
+
+        /* তারিখ সেকশন স্টাইল */
+        .date-box { 
+            display: flex; 
+            justify-content: space-around; 
+            margin: 15px; 
+            padding: 12px; 
+            background: #fff; 
+            border-radius: 12px; 
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .date-item { flex: 1; }
+        .date-item span { display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; }
+        .date-item b { font-size: 0.9rem; color: var(--primary); }
+        .date-divider { width: 1px; background: #e2e8f0; margin: 0 5px; }
 
         .info-box { padding: 15px; margin: 15px; background: #f8fafc; border-radius: 12px; border-left: 5px solid var(--primary); }
         .prizes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
@@ -62,6 +79,24 @@
             <button class="winner-btn-nav" onclick="showWinners()">🏆 বিজয়ীদের বিস্তারিত দেখুন</button>
         </header>
 
+        <!-- শুরু, শেষ ও ড্র তারিখ প্রদর্শন -->
+        <div class="date-box">
+            <div class="date-item">
+                <span>শুরু</span>
+                <b id="start-date">--</b>
+            </div>
+            <div class="date-divider"></div>
+            <div class="date-item">
+                <span>শেষ</span>
+                <b id="end-date" style="color:#dc2626;">--</b>
+            </div>
+            <div class="date-divider"></div>
+            <div class="date-item">
+                <span>ড্র তারিখ</span>
+                <b id="draw-date" style="color:#059669;">--</b>
+            </div>
+        </div>
+
         <div class="info-box">
             <strong>🎁 পুরস্কারসমূহ:</strong>
             <div class="prizes-grid">
@@ -79,12 +114,11 @@
                 <div class="form-box">
                     <h3>📝 আপনার তথ্য দিন</h3>
                     <label>আপনার নাম *</label>
-                    <input type="text" id="u-name"placeholder="আপনার পুরো নাম">
+                    <input type="text" id="u-name" placeholder="আপনার পুরো নাম">
                     <label>ফোন নম্বর *</label>
-                  
-                    <input type="text" id="u_phone" placeholder="ফোন নাম্বার(+88017+++)">
+                    <input type="tel" id="u-phone" placeholder="০১৭xxxxxxxx">
                     <label>ঠিকানা *</label>
-                    <textarea id="u-addr"placeholder="গ্রাম থানা জেলা"></textarea>
+                    <textarea id="u-addr" rows="2" placeholder="গ্রাম, থানা, জেলা"></textarea>
                     <button class="btn-submit" id="submitBtn" onclick="submitQuiz()">জমা দিন</button>
                 </div>
             </div>
@@ -101,8 +135,6 @@
 
 <script>
 const S_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSHz_RXYuwWLmATfhvTnRcKyxYJ6Q-FrUlVjFw1Fhy5VEsmN7iYBvkpJ71cbigBFdmO0urkakTY2FWm/pub?output=csv";
-
-// *** এখানে আপনার নতুন অ্যাপস স্ক্রিপ্ট লিঙ্কটি বসান ***
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbypmotZ0evl9lFVALv1mlYIgtK39B-HoVQQEGd5LqfbafTxSOQ-lrliXixONRmPFg8b/exec";
 
 const GIDs = { q: "0", info: "12693346", win: "365975577" };
@@ -132,6 +164,7 @@ async function init() {
     try {
         const resInfo = await fetch(`${S_URL}&gid=${GIDs.info}`);
         const infoData = parseBetterCSV(await resInfo.text())[1];
+        
         document.getElementById('org-name').innerText = infoData[0];
         document.getElementById('logo').src = infoData[1];
         document.getElementById('quiz-title').innerText = infoData[2];
@@ -139,6 +172,12 @@ async function init() {
         document.getElementById('p2').innerText = infoData[4];
         document.getElementById('p3').innerText = infoData[5];
         document.getElementById('ptot').innerText = infoData[6];
+        
+        // আপনার গুগল শীটের Info ট্যাবে যদি কলাম ৮, ৯, ১০ এ তারিখ থাকে তবে এগুলো কাজ করবে।
+        // নতুবা আপনি এখানে সরাসরি তারিখ লিখে দিতে পারেন।
+        document.getElementById('start-date').innerText = infoData[7] || "০১ মে";
+        document.getElementById('end-date').innerText = infoData[8] || "৩০ মে";
+        document.getElementById('draw-date').innerText = infoData[9] || "০৫ জুন";
 
         const resQ = await fetch(`${S_URL}&gid=${GIDs.q}`);
         const qData = parseBetterCSV(await resQ.text()).slice(1);
@@ -150,7 +189,7 @@ async function init() {
             totalQuestions++;
             const div = document.createElement('div');
             div.className = 'q-card';
-            div.innerHTML = `<span class="q-text">${i+1}. ${row[0]}</span>` + 
+            div.innerHTML = `<span class="q-text">${totalQuestions}. ${row[0]}</span>` + 
                 [row[1], row[2], row[3], row[4]].filter(o => o).map(o => 
                 `<label class="opt-label"><input type="radio" name="q${i}" value="${o}"> ${o}</label>`).join('');
             qContainer.appendChild(div);
@@ -167,17 +206,21 @@ async function init() {
 }
 
 async function submitQuiz() {
-    // ১. চেক করা হচ্ছে ব্যবহারকারী আগে জমা দিয়েছেন কিনা
-    if (localStorage.getItem('quizSubmitted')) {
-        alert("আপনি ইতিমধ্যে একবার এই কুইজে অংশগ্রহণ করেছেন। নতুন করে অংশগ্রহণের সুযোগ নেই!");
-        return;
-    }
-
     const n = document.getElementById('u-name').value.trim();
     const p = document.getElementById('u-phone').value.trim();
     const a = document.getElementById('u-addr').value.trim();
 
+    // ১. ইনপুট চেক
     if(!n || !p || !a) return alert("দয়া করে নাম, ফোন এবং ঠিকানা সঠিকভাবে দিন!");
+
+    // ২. ফোন নম্বর ভ্যালিডেশন (একই নম্বর দিয়ে দ্বিতীয়বার সাবমিট রোধ)
+    // আমরা ব্রাউজারের মেমোরিতে চেক করছি এই নম্বরটি আগে ব্যবহার হয়েছে কিনা
+    let usedNumbers = JSON.parse(localStorage.getItem('usedNumbers')) || [];
+    
+    if (usedNumbers.includes(p)) {
+        alert("দুঃখিত, এই ফোন নম্বরটি দিয়ে ইতিমধ্যে একবার কুইজ জমা দেওয়া হয়েছে। অন্য নম্বর ব্যবহার করুন।");
+        return;
+    }
 
     // কুইজের উত্তর সংগ্রহ
     let answersArray = [];
@@ -199,8 +242,9 @@ async function submitQuiz() {
             body: JSON.stringify({ name: n, phone: p, address: a, answers: allAnswers })
         });
 
-        // ২. সাবমিট সফল হলে ব্রাউজারে তথ্য সংরক্ষণ করা হচ্ছে
-        localStorage.setItem('quizSubmitted', 'true');
+        // ৩. সাবমিট সফল হলে নম্বরটি ব্রাউজারের 'ব্যবহৃত নম্বর' লিস্টে সেভ করা হচ্ছে
+        usedNumbers.push(p);
+        localStorage.setItem('usedNumbers', JSON.stringify(usedNumbers));
 
         document.getElementById('quiz-view').classList.add('hidden');
         document.getElementById('success-view').classList.remove('hidden');
@@ -208,7 +252,7 @@ async function submitQuiz() {
     } catch (err) {
         alert("ত্রুটি হয়েছে! আবার চেষ্টা করুন।");
         btn.disabled = false;
-        btn.innerText = "কুইজ জমা দিন";
+        btn.innerText = "জমা দিন";
     }
 }
 
