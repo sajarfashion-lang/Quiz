@@ -3,59 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>কুইজ অংশগ্রহণ করে জিতে নিন আকর্ষণীয় পুরুষ্কার</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>🏆</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --bg: #f1f5f9; --card: #ffffff; --text: #1e293b; --accent: #f59e0b; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; }
-        .container { width: 100%; max-width: 480px; background: var(--card); min-height: 100vh; box-shadow: 0 0 15px rgba(0,0,0,0.1); position: relative; }
-        
-        header { text-align: center; padding: 20px; background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; border-radius: 0 0 20px 20px; }
-        #logo { width: 65px; height: 65px; border-radius: 50%; border: 2px solid #fff; margin-bottom: 8px; object-fit: cover; }
-        
-        .winner-btn-nav { background: #ffd700; color: #000; padding: 10px 20px; border-radius: 25px; font-weight: bold; border: none; cursor: pointer; margin-top: 10px; }
-
-        /* তারিখ সেকশন স্টাইল */
-        .date-box { 
-            display: flex; 
-            justify-content: space-around; 
-            margin: 15px; 
-            padding: 12px; 
-            background: #fff; 
-            border-radius: 12px; 
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        :root { 
+            --primary: #1e3a8a; 
+            --bg: #f1f5f9; 
+            --card: #ffffff; 
+            --text: #1e293b; 
+            --header-grad: linear-gradient(135deg, #1e3a8a, #2563eb); 
         }
-        .date-item { flex: 1; }
-        .date-item span { display: block; font-size: 0.75rem; color: #64748b; font-weight: 600; }
-        .date-item b { font-size: 0.9rem; color: var(--primary); }
-        .date-divider { width: 1px; background: #e2e8f0; margin: 0 5px; }
-
-        .info-box { padding: 15px; margin: 15px; background: #f8fafc; border-radius: 12px; border-left: 5px solid var(--primary); }
-        .prizes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
-        .prize-card { background: #fff; padding: 8px; border-radius: 8px; font-size: 0.9em; text-align: center; border: 1px solid #e2e8f0; }
-
-        .quiz-section { padding: 20px; }
-        .q-card { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
-        .q-text { font-size: 1.1em; font-weight: 600; margin-bottom: 12px; display: block; color: var(--primary); }
-        .opt-label { display: flex; align-items: center; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 8px; cursor: pointer; transition: 0.2s; }
-        .opt-label input { margin-right: 12px; transform: scale(1.2); }
-
-        .form-box { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-top: 30px;}
-        .form-box label { display: block; margin-top: 10px; font-weight: 600; }
-        .form-box input, .form-box textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 5px; font-size: 1em; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
         
-        .btn-submit { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 1.1em; font-weight: 600; cursor: pointer; margin-top: 20px; }
-        .btn-submit:disabled { background: #94a3b8; }
+        body { background: var(--header-grad); min-height: 100vh; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 480px; background: var(--card); min-height: 100vh; box-shadow: 0 0 25px rgba(0,0,0,0.3); position: relative; overflow-x: hidden; }
+        
+        .bismillah-header { text-align: center; padding: 15px 10px 5px 10px; background: #fff; border-bottom: 1px solid #eee; }
+        .bismillah-text { font-size: 1.1em; font-weight: 600; color: #333; margin-bottom: 8px; }
+        
+        .quiz-shout-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 0 15px; margin-bottom: 5px; }
+        .quiz-shout { font-size: 1.1em; font-weight: 800; color: #e11d48; text-transform: uppercase; }
+
+        header { text-align: center; padding: 25px 20px; background: var(--header-grad); color: white; border-radius: 0 0 25px 25px; }
+        #logo { width: 80px; height: 80px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.4); margin-bottom: 10px; object-fit: cover; background: white; padding: 2px; }
+        
+        .winner-btn-nav { background: #ffd700; color: #000; padding: 10px 20px; border-radius: 25px; font-weight: bold; border: none; cursor: pointer; margin-top: 12px; font-size: 0.9em; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+
+        .info-box { padding: 15px; margin: 15px; background: #f8fafc; border-radius: 12px; border-left: 5px solid #2563eb; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        
+        .date-container { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cbd5e1; font-size: 0.82em; }
+        .date-row { display: flex; justify-content: space-between; }
+        .date-row b { color: #e11d48; }
+
+        .prizes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .prize-card { background: #fff; padding: 10px 5px; border-radius: 8px; font-size: 0.82em; text-align: center; border: 1px solid #e2e8f0; }
+        .prize-card b { color: #1e3a8a; display: block; margin-top: 2px; }
+
+        .quiz-section { padding: 20px; background: var(--header-grad); margin: 15px; border-radius: 20px; color: white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .q-card { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.2); padding: 15px; border-radius: 12px; margin-bottom: 15px; backdrop-filter: blur(8px); }
+        .q-text { font-size: 1.1em; font-weight: 600; margin-bottom: 12px; display: block; color: #fff; }
+        .opt-label { display: flex; align-items: center; padding: 12px; background: rgba(255, 255, 255, 0.95); border-radius: 8px; margin-bottom: 8px; cursor: pointer; color: #1e293b; transition: 0.2s; }
+        .opt-label input { margin-right: 12px; transform: scale(1.3); }
+
+        .form-box { background: #fff; padding: 20px; border-radius: 15px; margin-top: 20px; color: var(--text); }
+        .form-box h3 { margin-bottom: 10px; color: var(--primary); text-align: center; }
+        .form-box input, .form-box textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 10px; font-size: 1em; }
+        
+        .btn-submit { width: 100%; padding: 15px; background: #ffd700; color: #000; border: none; border-radius: 10px; font-size: 1.1em; font-weight: bold; cursor: pointer; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
         #winner-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 9999; }
-        .modal-body { background: white; width: 90%; max-width: 400px; padding: 20px; border-radius: 15px; max-height: 80vh; overflow-y: auto; }
-        .winner-item { background: #fff9e6; padding: 15px; border-radius: 10px; margin-bottom: 12px; border: 1px solid #ffe4b3; }
+        .modal-body { background: white; width: 95%; max-width: 420px; padding: 20px; border-radius: 15px; max-height: 85vh; overflow-y: auto; }
+        .winner-item { background: #fff9e6; padding: 12px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #ffe4b3; }
+        .winner-rank { display: inline-block; background: #e11d48; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8em; margin-bottom: 5px; }
 
         .hidden { display: none; }
-        #loader { text-align: center; padding: 50px; font-weight: bold; }
+        #loader { text-align: center; padding: 80px 20px; font-weight: bold; color: #fff; font-size: 1.2em; }
     </style>
 </head>
 <body>
@@ -69,65 +71,63 @@
 </div>
 
 <div class="container">
-    <div id="loader">অনুগ্রহ করে অপেক্ষা করুন...</div>
+    <div id="loader">লোড হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন</div>
 
     <div id="app" class="hidden">
+        <div class="bismillah-header">
+            <p class="bismillah-text">বিসমিল্লাহির রাহমানির রাহিম</p>
+            <div class="quiz-shout-wrapper">
+                <span class="quiz-shout">কুইজ</span>
+                <span class="quiz-shout">কুইজ</span>
+                <span class="quiz-shout">কুইজ</span>
+            </div>
+        </div>
+
         <header>
-            <img id="logo" src="" alt="">
+            <img id="logo" src="" alt="Logo">
             <h2 id="org-name"></h2>
             <p id="quiz-title"></p>
             <button class="winner-btn-nav" onclick="showWinners()">🏆 বিজয়ীদের বিস্তারিত দেখুন</button>
         </header>
 
-        <!-- শুরু, শেষ ও ড্র তারিখ প্রদর্শন -->
-        <div class="date-box">
-            <div class="date-item">
-                <span>শুরু</span>
-                <b id="start-date">--</b>
-            </div>
-            <div class="date-divider"></div>
-            <div class="date-item">
-                <span>শেষ</span>
-                <b id="end-date" style="color:#dc2626;">--</b>
-            </div>
-            <div class="date-divider"></div>
-            <div class="date-item">
-                <span>ড্র তারিখ</span>
-                <b id="draw-date" style="color:#059669;">--</b>
-            </div>
-        </div>
-
         <div class="info-box">
+            <div class="date-container">
+                <div class="date-row">
+                    <span>📅 শুরু: <b id="start-date">--</b></span>
+                    <span>⌛ শেষ: <b id="end-date">--</b></span>
+                </div>
+                <div class="date-row" style="justify-content:center; border-top:1px solid #eee; padding-top:5px; margin-top:5px;">
+                    <span>🎁 ড্র তারিখ: <b id="draw-date">--</b></span>
+                </div>
+            </div>
             <strong>🎁 পুরস্কারসমূহ:</strong>
             <div class="prizes-grid">
-                <div class="prize-card">১ম: <b id="p1"></b></div>
-                <div class="prize-card">২য়: <b id="p2"></b></div>
-                <div class="prize-card">৩য়: <b id="p3"></b></div>
-                <div class="prize-card">সর্বমোট: <b id="ptot"></b></div>
+                <div class="prize-card">১ম: <b id="p1">--</b></div>
+                <div class="prize-card">২য়: <b id="p2">--</b></div>
+                <div class="prize-card">৩য়: <b id="p3">--</b></div>
+                <div class="prize-card">সর্ব মোট : <b id="p4">--</b></div>
             </div>
         </div>
 
         <div class="quiz-section">
             <div id="quiz-view">
                 <div id="questions-container"></div>
-
                 <div class="form-box">
                     <h3>📝 আপনার তথ্য দিন</h3>
-                    <label>আপনার নাম *</label>
-                    <input type="text" id="u-name" placeholder="আপনার পুরো নাম">
-                    <label>ফোন নম্বর *</label>
-                    <input type="tel" id="u-phone" placeholder="০১৭xxxxxxxx">
-                    <label>ঠিকানা *</label>
-                    <textarea id="u-addr" rows="2" placeholder="গ্রাম, থানা, জেলা"></textarea>
-                    <button class="btn-submit" id="submitBtn" onclick="submitQuiz()">জমা দিন</button>
+      <label>আপনার নাম</label>     
+    <input type="text" id="u-name" placeholder="আপনার পুরো নাম">
+                    <label>আপনার ফোন নাম্বার</label>
+<input type="tel" id="u-phone" placeholder="ফোন নম্বর (+8801+++++++)">
+                   <label>আপনার ঠিকানা</label>
+ <textarea id="u-addr" placeholder="ঠিকানা (গ্রাম, থানা, জেলা)"></textarea>
+                    <button class="btn-submit" id="submitBtn" onclick="submitQuiz()">কুইজ জমা দিন</button>
                 </div>
             </div>
 
             <div id="success-view" class="hidden" style="text-align:center; padding:40px 10px;">
                 <h1 style="font-size:3em;">🎉</h1>
-                <h2 style="color:var(--primary)">সফলভাবে জমা হয়েছে!</h2>
-                <p>আপনার কুইজ উত্তরসহ সব তথ্য গুগল শীটে যুক্ত হয়েছে।</p>
-                <button onclick="location.reload()" style="margin-top:20px; padding:10px 20px; border:none; background:#eee; border-radius:8px;">ফিরে যান</button>
+                <h2 style="color:#fff">সফলভাবে জমা হয়েছে!</h2>
+                <button onclick="location.reload()" style="margin-top:20px; padding:10px 25px; border:none; background:#fff; color:#1e3a8a; border-radius:8px; font-weight:bold;">ফিরে যান</button>
             </div>
         </div>
     </div>
@@ -136,72 +136,75 @@
 <script>
 const S_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSHz_RXYuwWLmATfhvTnRcKyxYJ6Q-FrUlVjFw1Fhy5VEsmN7iYBvkpJ71cbigBFdmO0urkakTY2FWm/pub?output=csv";
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbypmotZ0evl9lFVALv1mlYIgtK39B-HoVQQEGd5LqfbafTxSOQ-lrliXixONRmPFg8b/exec";
-
 const GIDs = { q: "0", info: "12693346", win: "365975577" };
-let winnersData = [];
-let totalQuestions = 0;
 
-function parseBetterCSV(text) {
-    const result = [];
-    const rows = text.split(/\r?\n/);
-    rows.forEach(row => {
-        const columns = [];
+let totalQuestions = 0;
+let winnersData = [];
+
+function parseCSV(text) {
+    return text.split(/\r?\n/).map(row => {
+        let cols = [];
         let col = '', inQuotes = false;
         for (let i = 0; i < row.length; i++) {
             let char = row[i];
             if (char === '"' && row[i+1] === '"') { col += '"'; i++; }
             else if (char === '"') { inQuotes = !inQuotes; }
-            else if (char === ',' && !inQuotes) { columns.push(col); col = ''; }
+            else if (char === ',' && !inQuotes) { cols.push(col); col = ''; }
             else { col += char; }
         }
-        columns.push(col);
-        result.push(columns);
+        cols.push(col);
+        return cols;
     });
-    return result;
 }
 
 async function init() {
     try {
-        const resInfo = await fetch(`${S_URL}&gid=${GIDs.info}`);
-        const infoData = parseBetterCSV(await resInfo.text())[1];
-        
-        document.getElementById('org-name').innerText = infoData[0];
-        document.getElementById('logo').src = infoData[1];
-        document.getElementById('quiz-title').innerText = infoData[2];
-        document.getElementById('p1').innerText = infoData[3];
-        document.getElementById('p2').innerText = infoData[4];
-        document.getElementById('p3').innerText = infoData[5];
-        document.getElementById('ptot').innerText = infoData[6];
-        
-        // আপনার গুগল শীটের Info ট্যাবে যদি কলাম ৮, ৯, ১০ এ তারিখ থাকে তবে এগুলো কাজ করবে।
-        // নতুবা আপনি এখানে সরাসরি তারিখ লিখে দিতে পারেন।
-        document.getElementById('start-date').innerText = infoData[7] || "০১ মে";
-        document.getElementById('end-date').innerText = infoData[8] || "৩০ মে";
-        document.getElementById('draw-date').innerText = infoData[9] || "০৫ জুন";
+        // প্যারালাল ফেচিং - ৩টি রিকোয়েস্ট একসাথেই যাবে
+        const [resInfo, resQ, resWin] = await Promise.all([
+            fetch(`${S_URL}&gid=${GIDs.info}`).then(r => r.text()),
+            fetch(`${S_URL}&gid=${GIDs.q}`).then(r => r.text()),
+            fetch(`${S_URL}&gid=${GIDs.win}`).then(r => r.text())
+        ]);
 
-        const resQ = await fetch(`${S_URL}&gid=${GIDs.q}`);
-        const qData = parseBetterCSV(await resQ.text()).slice(1);
-        const qContainer = document.getElementById('questions-container');
-        
-        totalQuestions = 0;
-        qData.forEach((row, i) => {
+        // ১. ইনফো সেটআপ
+        const infoData = parseCSV(resInfo)[1];
+        if(infoData) {
+            document.getElementById('org-name').innerText = infoData[0] || "";
+            document.getElementById('logo').src = infoData[1] || "";
+            document.getElementById('quiz-title').innerText = infoData[2] || "";
+            document.getElementById('p1').innerText = infoData[3] || "--";
+            document.getElementById('p2').innerText = infoData[4] || "--";
+            document.getElementById('p3').innerText = infoData[5] || "--";
+            document.getElementById('p4').innerText = infoData[6] || "--";
+            document.getElementById('start-date').innerText = infoData[7] || "--";
+            document.getElementById('end-date').innerText = infoData[8] || "--";
+            document.getElementById('draw-date').innerText = infoData[9] || "--";
+        }
+
+        // ২. প্রশ্ন সেটআপ (Batch Rendering)
+        const qLines = parseCSV(resQ).slice(1);
+        let qHTML = "";
+        qLines.forEach((row, i) => {
             if(!row[0]) return;
             totalQuestions++;
-            const div = document.createElement('div');
-            div.className = 'q-card';
-            div.innerHTML = `<span class="q-text">${totalQuestions}. ${row[0]}</span>` + 
-                [row[1], row[2], row[3], row[4]].filter(o => o).map(o => 
-                `<label class="opt-label"><input type="radio" name="q${i}" value="${o}"> ${o}</label>`).join('');
-            qContainer.appendChild(div);
+            qHTML += `<div class="q-card">
+                <span class="q-text">${totalQuestions}. ${row[0]}</span>
+                ${[row[1], row[2], row[3], row[4]].filter(o => o).map(o => 
+                `<label class="opt-label"><input type="radio" name="q${i}" value="${o}"> ${o}</label>`).join('')}
+            </div>`;
         });
+        document.getElementById('questions-container').innerHTML = qHTML;
 
-        const resWin = await fetch(`${S_URL}&gid=${GIDs.win}`);
-        winnersData = parseBetterCSV(await resWin.text()).slice(1);
+        // ৩. বিজয়ী ডেটা স্টোর
+        winnersData = parseCSV(resWin).slice(1);
 
+        // লোডিং শেষ
         document.getElementById('loader').classList.add('hidden');
         document.getElementById('app').classList.remove('hidden');
-    } catch (err) {
-        document.getElementById('loader').innerText = "ডেটা লোড করতে ব্যর্থ!";
+
+    } catch (err) { 
+        console.error(err);
+        document.getElementById('loader').innerText = "ডেটা লোড করতে সমস্যা হয়েছে। রিফ্রেশ দিন।";
     }
 }
 
@@ -210,25 +213,19 @@ async function submitQuiz() {
     const p = document.getElementById('u-phone').value.trim();
     const a = document.getElementById('u-addr').value.trim();
 
-    // ১. ইনপুট চেক
-    if(!n || !p || !a) return alert("দয়া করে নাম, ফোন এবং ঠিকানা সঠিকভাবে দিন!");
+    if(!n || !p || !a) return alert("সব তথ্য পূরণ করুন!");
 
-    // ২. ফোন নম্বর ভ্যালিডেশন (একই নম্বর দিয়ে দ্বিতীয়বার সাবমিট রোধ)
-    // আমরা ব্রাউজারের মেমোরিতে চেক করছি এই নম্বরটি আগে ব্যবহার হয়েছে কিনা
-    let usedNumbers = JSON.parse(localStorage.getItem('usedNumbers')) || [];
-    
-    if (usedNumbers.includes(p)) {
-        alert("দুঃখিত, এই ফোন নম্বরটি দিয়ে ইতিমধ্যে একবার কুইজ জমা দেওয়া হয়েছে। অন্য নম্বর ব্যবহার করুন।");
+    let usedPhones = JSON.parse(localStorage.getItem('quiz_used_phones') || "[]");
+    if (usedPhones.includes(p)) {
+        alert("এই ফোন নম্বরটি দিয়ে ইতিমধ্যে জমা দেওয়া হয়েছে!");
         return;
     }
 
-    // কুইজের উত্তর সংগ্রহ
     let answersArray = [];
     for(let i=0; i < totalQuestions; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        answersArray.push(`প্রশ্ন ${i+1}: ${selected ? selected.value : "উত্তর দেয়নি"}`);
+        answersArray.push(`Q${i+1}: ${selected ? selected.value : "N/A"}`);
     }
-    const allAnswers = answersArray.join(" | ");
 
     const btn = document.getElementById('submitBtn');
     btn.innerText = "জমা হচ্ছে...";
@@ -238,32 +235,39 @@ async function submitQuiz() {
         await fetch(SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: n, phone: p, address: a, answers: allAnswers })
+            body: JSON.stringify({ name: n, phone: p, address: a, answers: answersArray.join(" | ") })
         });
 
-        // ৩. সাবমিট সফল হলে নম্বরটি ব্রাউজারের 'ব্যবহৃত নম্বর' লিস্টে সেভ করা হচ্ছে
-        usedNumbers.push(p);
-        localStorage.setItem('usedNumbers', JSON.stringify(usedNumbers));
+        usedPhones.push(p);
+        localStorage.setItem('quiz_used_phones', JSON.stringify(usedPhones));
 
         document.getElementById('quiz-view').classList.add('hidden');
         document.getElementById('success-view').classList.remove('hidden');
         window.scrollTo(0,0);
     } catch (err) {
-        alert("ত্রুটি হয়েছে! আবার চেষ্টা করুন।");
+        alert("ত্রুটি হয়েছে!");
         btn.disabled = false;
-        btn.innerText = "জমা দিন";
+        btn.innerText = "কুইজ জমা দিন";
     }
 }
 
 function showWinners() {
     const list = document.getElementById('winner-list');
-    list.innerHTML = winnersData.length > 0 ? '' : '<p>কোনো তথ্য নেই।</p>';
-    winnersData.forEach(w => {
-        if(!w[0]) return;
+    list.innerHTML = winnersData.length > 0 ? '' : '<p style="text-align:center;">এখনো তালিকা প্রকাশ হয়নি।</p>';
+    
+    winnersData.forEach((w, index) => {
+        if(!w[0] || w[0].trim() === "") return;
         const item = document.createElement('div');
         item.className = 'winner-item';
-        item.innerHTML = `<b>👤 নাম: ${w[0]}</b><p>📞 ফোন: ${w[1]}</p><p>🏠 ঠিকানা: ${w[2]}</p>`;
+        const ranks = ["১ম পুরস্কার বিজয়ী", "২য় পুরস্কার বিজয়ী", "৩য় পুরস্কার বিজয়ী", "৪র্থ পুরস্কার বিজয়ী"];
+        const rankLabel = ranks[index] || "বিজয়ী";
+        
+        item.innerHTML = `
+            <span class="winner-rank">${rankLabel}</span>
+            <p><b>👤 নাম: ${w[0]}</b></p>
+            <p>📞 ফোন: ${w[1]}</p>
+            <p>🏠 ঠিকানা: ${w[2]}</p>
+        `;
         list.appendChild(item);
     });
     document.getElementById('winner-modal').style.display = 'flex';
