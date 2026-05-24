@@ -3,279 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏆</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+    <title>ডিজিটাল আদর্শ লিপি ও শিশু শিক্ষা</title>
     <style>
-        :root { 
-            --primary: #1e3a8a; 
-            --bg: #f1f5f9; 
-            --card: #ffffff; 
-            --text: #1e293b; 
-            --header-grad: linear-gradient(135deg, #1e3a8a, #2563eb); 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
-        
-        body { background: var(--header-grad); min-height: 100vh; display: flex; justify-content: center; }
-        .container { width: 100%; max-width: 480px; background: var(--card); min-height: 100vh; box-shadow: 0 0 25px rgba(0,0,0,0.3); position: relative; overflow-x: hidden; }
-        
-        .bismillah-header { text-align: center; padding: 15px 10px 5px 10px; background: #fff; border-bottom: 1px solid #eee; }
-        .bismillah-text { font-size: 1.1em; font-weight: 600; color: #333; margin-bottom: 8px; }
-        
-        .quiz-shout-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 0 15px; margin-bottom: 5px; }
-        .quiz-shout { font-size: 1.1em; font-weight: 800; color: #e11d48; text-transform: uppercase; }
 
-        header { text-align: center; padding: 25px 20px; background: var(--header-grad); color: white; border-radius: 0 0 25px 25px; }
-        #logo { width: 80px; height: 80px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.4); margin-bottom: 10px; object-fit: cover; background: white; padding: 2px; }
-        
-        .winner-btn-nav { background: #ffd700; color: #000; padding: 10px 20px; border-radius: 25px; font-weight: bold; border: none; cursor: pointer; margin-top: 12px; font-size: 0.9em; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        body {
+            background-color: #f0f9ff;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        .info-box { padding: 15px; margin: 15px; background: #f8fafc; border-radius: 12px; border-left: 5px solid #2563eb; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        
-        .date-container { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cbd5e1; font-size: 0.82em; }
-        .date-row { display: flex; justify-content: space-between; }
-        .date-row b { color: #e11d48; }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-        .prizes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .prize-card { background: #fff; padding: 10px 5px; border-radius: 8px; font-size: 0.82em; text-align: center; border: 1px solid #e2e8f0; }
-        .prize-card b { color: #1e3a8a; display: block; margin-top: 2px; }
+        header h1 {
+            color: #ff4757;
+            font-size: 2.3rem;
+            text-shadow: 2px 2px #ffeaa7;
+            margin-bottom: 10px;
+        }
 
-        .quiz-section { padding: 20px; background: var(--header-grad); margin: 15px; border-radius: 20px; color: white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .q-card { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.2); padding: 15px; border-radius: 12px; margin-bottom: 15px; backdrop-filter: blur(8px); }
-        .q-text { font-size: 1.1em; font-weight: 600; margin-bottom: 12px; display: block; color: #fff; }
-        .opt-label { display: flex; align-items: center; padding: 12px; background: rgba(255, 255, 255, 0.95); border-radius: 8px; margin-bottom: 8px; cursor: pointer; color: #1e293b; transition: 0.2s; }
-        .opt-label input { margin-right: 12px; transform: scale(1.3); }
+        /* ক্যাটাগরি বাটন কন্টেইনার */
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 700px;
+            justify-content: center;
+        }
 
-        .form-box { background: #fff; padding: 20px; border-radius: 15px; margin-top: 20px; color: var(--text); }
-        .form-box h3 { margin-bottom: 10px; color: var(--primary); text-align: center; }
-        .form-box input, .form-box textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 10px; font-size: 1em; }
-        
-        .btn-submit { width: 100%; padding: 15px; background: #ffd700; color: #000; border: none; border-radius: 10px; font-size: 1.1em; font-weight: bold; cursor: pointer; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .tab-btn {
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background-color: #dfe6e9;
+            color: #2d3436;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-        #winner-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 9999; }
-        .modal-body { background: white; width: 95%; max-width: 420px; padding: 20px; border-radius: 15px; max-height: 85vh; overflow-y: auto; }
-        .winner-item { background: #fff9e6; padding: 12px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #ffe4b3; }
-        .winner-rank { display: inline-block; background: #e11d48; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8em; margin-bottom: 5px; }
+        .tab-btn.active {
+            background-color: #2ed573;
+            color: white;
+        }
 
-        .hidden { display: none; }
-        #loader { text-align: center; padding: 80px 20px; font-weight: bold; color: #fff; font-size: 1.2em; }
+        /* মেইন গ্রিড এরিয়া */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            width: 100%;
+            max-width: 700px;
+            padding: 10px;
+        }
+
+        /* প্রতিটি কার্ডের সাধারণ স্টাইল */
+        .card {
+            background: white;
+            border-radius: 15px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+            border-bottom: 5px solid #ffa502;
+            user-select: none;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .card:active {
+            transform: scale(0.92);
+        }
+
+        /* আরবি ফন্ট */
+        .arabic-font {
+            font-family: 'Traditional Arabic', 'Amiri', serif;
+            font-size: 2.8rem;
+        }
+
+        /* ছড়ার কার্ডের বিশেষ স্টাইল */
+        .rhyme-card {
+            grid-template-columns: 1fr !important;
+            height: auto !important;
+            min-height: 120px;
+            padding: 20px !important;
+            flex-direction: column;
+        }
+        .rhyme-title {
+            font-size: 1.5rem;
+            color: #ff4757;
+            margin-bottom: 8px;
+        }
+        .rhyme-lines {
+            font-size: 1.1rem;
+            font-weight: normal;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+        /* শব্দার্থ কার্ডের বিশেষ স্টাইল */
+        .word-card {
+            height: 110px;
+            flex-direction: column;
+            font-size: 1.4rem;
+        }
+        .word-bangla {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        /* কালার ভেরিয়েশন */
+        .card:nth-child(4n+1) { border-bottom-color: #ff4757; color: #ff4757; }
+        .card:nth-child(4n+2) { border-bottom-color: #2ed573; color: #2ed573; }
+        .card:nth-child(4n+3) { border-bottom-color: #1e90ff; color: #1e90ff; }
+        .card:nth-child(4n+4) { border-bottom-color: #ffa502; color: #ffa502; }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            text-align: center;
+        }
+
+        /* মোবাইল রেসপনসিভনেস */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 10px;
+            }
+            .card {
+                height: 85px;
+                font-size: 1.6rem;
+            }
+            .arabic-font { font-size: 2.2rem; }
+            .word-card { height: 95px; font-size: 1.2rem; }
+            header h1 { font-size: 1.8rem; }
+            .tab-btn { padding: 8px 14px; font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>
 
-<div id="winner-modal">
-    <div class="modal-body">
-        <h2 style="text-align:center; margin-bottom:15px;">🏆 বিজয়ীদের তালিকা</h2>
-        <div id="winner-list"></div>
-        <button onclick="closeWinners()" style="width:100%; padding:12px; background:#ef4444; color:white; border:none; border-radius:8px; margin-top:10px; font-weight:bold;">বন্ধ করুন</button>
+    <header>
+        <h1>ছোটদের অল-ইন-ওয়ান লিপি 🌟</h1>
+        <p>যেকোনো কার্ডে ক্লিক করে পড়া ও উচ্চারণ শোনো</p>
+    </header>
+
+    <!-- ট্যাব মেনু -->
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="switchTab('snor')">স্বরবর্ণ</button>
+        <button class="tab-btn" onclick="switchTab('benjon')">ব্যঞ্জনবর্ণ</button>
+        <button class="tab-btn" onclick="switchTab('english')">English ABC</button>
+        <button class="tab-btn" onclick="switchTab('arabic')">আরবি হরফ</button>
+        <button class="tab-btn" onclick="switchTab('number')">সংখ্যা</button>
+        <button class="tab-btn" onclick="switchTab('words')">শব্দার্থ</button>
+        <button class="tab-btn" onclick="switchTab('rhymes')">বাংলা ছড়া</button>
     </div>
-</div>
 
-<div class="container">
-    <div id="loader">লোড হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন</div>
-
-    <div id="app" class="hidden">
-        <div class="bismillah-header">
-            <p class="bismillah-text">বিসমিল্লাহির রাহমানির রাহিম</p>
-            <div class="quiz-shout-wrapper">
-                <span class="quiz-shout">কুইজ</span>
-                <span class="quiz-shout">কুইজ</span>
-                <span class="quiz-shout">কুইজ</span>
-            </div>
-        </div>
-
-        <header>
-            <img id="logo" src="" alt="Logo">
-            <h2 id="org-name"></h2>
-            <p id="quiz-title"></p>
-            <button class="winner-btn-nav" onclick="showWinners()">🏆 বিজয়ীদের বিস্তারিত দেখুন</button>
-        </header>
-
-        <div class="info-box">
-            <div class="date-container">
-                <div class="date-row">
-                    <span>📅 শুরু: <b id="start-date">--</b></span>
-                    <span>⌛ শেষ: <b id="end-date">--</b></span>
-                </div>
-                <div class="date-row" style="justify-content:center; border-top:1px solid #eee; padding-top:5px; margin-top:5px;">
-                    <span>🎁 ড্র তারিখ: <b id="draw-date">--</b></span>
-                </div>
-            </div>
-            <strong>🎁 পুরস্কারসমূহ:</strong>
-            <div class="prizes-grid">
-                <div class="prize-card">১ম: <b id="p1">--</b></div>
-                <div class="prize-card">২য়: <b id="p2">--</b></div>
-                <div class="prize-card">৩য়: <b id="p3">--</b></div>
-                <div class="prize-card">সর্ব মোট : <b id="p4">--</b></div>
-            </div>
-        </div>
-
-        <div class="quiz-section">
-            <div id="quiz-view">
-                <div id="questions-container"></div>
-                <div class="form-box">
-                    <h3>📝 আপনার তথ্য দিন</h3>
-      <label>আপনার নাম</label>     
-    <input type="text" id="u-name" placeholder="আপনার পুরো নাম">
-                    <label>আপনার ফোন নাম্বার</label>
-<input type="tel" id="u-phone" placeholder="ফোন নম্বর (+8801+++++++)">
-                   <label>আপনার ঠিকানা</label>
- <textarea id="u-addr" placeholder="ঠিকানা (গ্রাম, থানা, জেলা)"></textarea>
-                    <button class="btn-submit" id="submitBtn" onclick="submitQuiz()">কুইজ জমা দিন</button>
-                </div>
-            </div>
-
-            <div id="success-view" class="hidden" style="text-align:center; padding:40px 10px;">
-                <h1 style="font-size:3em;">🎉</h1>
-                <h2 style="color:#fff">সফলভাবে জমা হয়েছে!</h2>
-                <button onclick="location.reload()" style="margin-top:20px; padding:10px 25px; border:none; background:#fff; color:#1e3a8a; border-radius:8px; font-weight:bold;">ফিরে যান</button>
-            </div>
-        </div>
+    <!-- বর্ণমালার গ্রিড -->
+    <div class="grid-container" id="lipi-grid">
+        <!-- ডাটা লোড হবে এখানে -->
     </div>
-</div>
 
-<script>
-const S_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSHz_RXYuwWLmATfhvTnRcKyxYJ6Q-FrUlVjFw1Fhy5VEsmN7iYBvkpJ71cbigBFdmO0urkakTY2FWm/pub?output=csv";
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbypmotZ0evl9lFVALv1mlYIgtK39B-HoVQQEGd5LqfbafTxSOQ-lrliXixONRmPFg8b/exec";
-const GIDs = { q: "0", info: "12693346", win: "365975577" };
+    <footer>
+        <p>&copy; 2026 Sofikul Islam. All Rights Reserved.</p>
+    </footer>
 
-let totalQuestions = 0;
-let winnersData = [];
+    <script>
+        // সম্পূর্ণ ডাটাবেজ
+        const data = {
+            snor: ['অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'এ', 'ঐ', 'ও', 'ঔ'],
+            benjon: [
+                'ক', 'খ', 'গ', 'ঘ', 'ঙ', 'চ', 'ছ', 'জ', 'ঝ', 'ঞ', 
+                'ট', 'ঠ', 'ড', 'ঢ', 'ণ', 'ত', 'থ', 'দ', 'ধ', 'ন', 
+                'প', 'ফ', 'ব', 'ভ', 'ম', 'য', 'র', 'ল', 'শ', 'ষ', 
+                'স', 'হ', 'ড়', 'ঢ়', 'য়', 'ৎ', 'ং', 'ঃ', 'ঁ'
+            ],
+            english: [
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+            ],
+            arabic: [
+                'ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'স', 'ش', 'ص', 
+                'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'هـ', 'و', 'ي'
+            ],
+            number: ['১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '১০'],
+            words: [
+                {en: 'Apple', bn: 'আপেল'}, {en: 'Ball', bn: 'বল'}, {en: 'Cat', bn: 'বিড়াল'},
+                {en: 'Dog', bn: 'কুকুর'}, {en: 'Egg', bn: 'ডিম'}, {en: 'Fish', bn: 'মাছ'},
+                {en: 'Home', bn: 'বাড়ি'}, {en: 'Milk', bn: 'দুধ'}, {en: 'Water', bn: 'পানি'},
+                {en: 'Tiger', bn: 'বাঘ'}, {en: 'Book', bn: 'বই'}, {en: 'Sun', bn: 'সূর্য'}
+            ],
+            rhymes: [
+                {title: 'আতা গাছে তোতা পাখি', lines: 'আতা গাছে তোতা পাখি\nডালিম গাছে মৌ,\nএত ডাকি তবু কথা\nকও না কেন বউ?'},
+                {title: 'হাট্টিমা টিম টিম', lines: 'হাট্টিমা টিম টিম\nতারা মাঠে পাড়ে ডিম,\nতাদের খাড়া দুটো শিং\nতারা হাট্টিমা টিম টিম।'},
+                {title: 'খোকন খোকন ডাক পাড়ি', lines: 'খোকন খোকন ডাক পাড়ি\nখোকন মোদের কার বাড়ি?\nআয় রে খোকন ঘরে আয়\nদুধ-মাখা ভাত কাকে খায়।'}
+            ]
+        };
 
-function parseCSV(text) {
-    return text.split(/\r?\n/).map(row => {
-        let cols = [];
-        let col = '', inQuotes = false;
-        for (let i = 0; i < row.length; i++) {
-            let char = row[i];
-            if (char === '"' && row[i+1] === '"') { col += '"'; i++; }
-            else if (char === '"') { inQuotes = !inQuotes; }
-            else if (char === ',' && !inQuotes) { cols.push(col); col = ''; }
-            else { col += char; }
-        }
-        cols.push(col);
-        return cols;
-    });
-}
+        const grid = document.getElementById('lipi-grid');
 
-async function init() {
-    try {
-        // প্যারালাল ফেচিং - ৩টি রিকোয়েস্ট একসাথেই যাবে
-        const [resInfo, resQ, resWin] = await Promise.all([
-            fetch(`${S_URL}&gid=${GIDs.info}`).then(r => r.text()),
-            fetch(`${S_URL}&gid=${GIDs.q}`).then(r => r.text()),
-            fetch(`${S_URL}&gid=${GIDs.win}`).then(r => r.text())
-        ]);
+        // কার্ড রেন্ডার ফাংশন
+        function renderGrid(category) {
+            grid.innerHTML = '';
+            
+            // ছড়া এবং শব্দার্থের জন্য গ্রিড কলাম লেআউট ডায়নামিক করা
+            if(category === 'rhymes') {
+                grid.style.gridTemplateColumns = '1fr';
+            } else if(category === 'words') {
+                grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(130px, 1fr))';
+            } else {
+                grid.style.gridTemplateColumns = '';
+            }
 
-        // ১. ইনফো সেটআপ
-        const infoData = parseCSV(resInfo)[1];
-        if(infoData) {
-            document.getElementById('org-name').innerText = infoData[0] || "";
-            document.getElementById('logo').src = infoData[1] || "";
-            document.getElementById('quiz-title').innerText = infoData[2] || "";
-            document.getElementById('p1').innerText = infoData[3] || "--";
-            document.getElementById('p2').innerText = infoData[4] || "--";
-            document.getElementById('p3').innerText = infoData[5] || "--";
-            document.getElementById('p4').innerText = infoData[6] || "--";
-            document.getElementById('start-date').innerText = infoData[7] || "--";
-            document.getElementById('end-date').innerText = infoData[8] || "--";
-            document.getElementById('draw-date').innerText = infoData[9] || "--";
+            // লুপ চালিয়ে কার্ড তৈরি
+            data[category].forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                if (category === 'arabic') {
+                    card.classList.add('arabic-font');
+                    card.innerText = item;
+                    card.onclick = () => speak(item, 'ar-SA');
+                } 
+                else if (category === 'english') {
+                    card.innerText = item;
+                    card.onclick = () => speak(item, 'en-US');
+                } 
+                else if (category === 'words') {
+                    card.classList.add('word-card');
+                    card.innerHTML = `<div>${item.en}</div><div class="word-bangla">${item.bn}</div>`;
+                    card.onclick = () => speak(`${item.en}, অর্থ ${item.bn}`, 'bn-BD');
+                } 
+                else if (category === 'rhymes') {
+                    card.classList.add('rhyme-card');
+                    card.innerHTML = `<div class="rhyme-title">${item.title}</div><div class="rhyme-lines">${item.lines.replace(/\n/g, '<br>')}</div>`;
+                    card.onclick = () => speak(`${item.title}. ${item.lines}`, 'bn-BD', 0.9);
+                } 
+                else {
+                    card.innerText = item;
+                    card.onclick = () => speak(item, 'bn-BD');
+                }
+
+                grid.appendChild(card);
+            });
         }
 
-        // ২. প্রশ্ন সেটআপ (Batch Rendering)
-        const qLines = parseCSV(resQ).slice(1);
-        let qHTML = "";
-        qLines.forEach((row, i) => {
-            if(!row[0]) return;
-            totalQuestions++;
-            qHTML += `<div class="q-card">
-                <span class="q-text">${totalQuestions}. ${row[0]}</span>
-                ${[row[1], row[2], row[3], row[4]].filter(o => o).map(o => 
-                `<label class="opt-label"><input type="radio" name="q${i}" value="${o}"> ${o}</label>`).join('')}
-            </div>`;
-        });
-        document.getElementById('questions-container').innerHTML = qHTML;
+        // ইউনিভার্সাল ভয়েস ফাংশন
+        function speak(text, langCode, rate = 0.8) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // প্রিভিয়াস ভয়েস স্টপ
 
-        // ৩. বিজয়ী ডেটা স্টোর
-        winnersData = parseCSV(resWin).slice(1);
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = langCode;
+                utterance.rate = rate; // স্পিড কন্ট্রোল
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("আপনার ব্রাউজারে ভয়েস সাপোর্ট নেই।");
+            }
+        }
 
-        // লোডিং শেষ
-        document.getElementById('loader').classList.add('hidden');
-        document.getElementById('app').classList.remove('hidden');
+        // ট্যাব সুইচিং ফাংশন
+        function switchTab(category) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            renderGrid(category);
+        }
 
-    } catch (err) { 
-        console.error(err);
-        document.getElementById('loader').innerText = "ডেটা লোড করতে সমস্যা হয়েছে। রিফ্রেশ দিন।";
-    }
-}
-
-async function submitQuiz() {
-    const n = document.getElementById('u-name').value.trim();
-    const p = document.getElementById('u-phone').value.trim();
-    const a = document.getElementById('u-addr').value.trim();
-
-    if(!n || !p || !a) return alert("সব তথ্য পূরণ করুন!");
-
-    let usedPhones = JSON.parse(localStorage.getItem('quiz_used_phones') || "[]");
-    if (usedPhones.includes(p)) {
-        alert("এই ফোন নম্বরটি দিয়ে ইতিমধ্যে জমা দেওয়া হয়েছে!");
-        return;
-    }
-
-    let answersArray = [];
-    for(let i=0; i < totalQuestions; i++) {
-        const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        answersArray.push(`Q${i+1}: ${selected ? selected.value : "N/A"}`);
-    }
-
-    const btn = document.getElementById('submitBtn');
-    btn.innerText = "জমা হচ্ছে...";
-    btn.disabled = true;
-
-    try {
-        await fetch(SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: JSON.stringify({ name: n, phone: p, address: a, answers: answersArray.join(" | ") })
-        });
-
-        usedPhones.push(p);
-        localStorage.setItem('quiz_used_phones', JSON.stringify(usedPhones));
-
-        document.getElementById('quiz-view').classList.add('hidden');
-        document.getElementById('success-view').classList.remove('hidden');
-        window.scrollTo(0,0);
-    } catch (err) {
-        alert("ত্রুটি হয়েছে!");
-        btn.disabled = false;
-        btn.innerText = "কুইজ জমা দিন";
-    }
-}
-
-function showWinners() {
-    const list = document.getElementById('winner-list');
-    list.innerHTML = winnersData.length > 0 ? '' : '<p style="text-align:center;">এখনো তালিকা প্রকাশ হয়নি।</p>';
-    
-    winnersData.forEach((w, index) => {
-        if(!w[0] || w[0].trim() === "") return;
-        const item = document.createElement('div');
-        item.className = 'winner-item';
-        const ranks = ["১ম পুরস্কার বিজয়ী", "২য় পুরস্কার বিজয়ী", "৩য় পুরস্কার বিজয়ী", "৪র্থ পুরস্কার বিজয়ী"];
-        const rankLabel = ranks[index] || "বিজয়ী";
-        
-        item.innerHTML = `
-            <span class="winner-rank">${rankLabel}</span>
-            <p><b>👤 নাম: ${w[0]}</b></p>
-            <p>📞 ফোন: ${w[1]}</p>
-            <p>🏠 ঠিকানা: ${w[2]}</p>
-        `;
-        list.appendChild(item);
-    });
-    document.getElementById('winner-modal').style.display = 'flex';
-}
-
-function closeWinners() { document.getElementById('winner-modal').style.display = 'none'; }
-
-init();
-</script>
+        // ডিফল্ট লোড
+        renderGrid('snor');
+    </script>
 </body>
 </html>
