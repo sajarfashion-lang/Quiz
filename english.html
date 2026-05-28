@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning - Adarsho Lipi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Serif+Bengali:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Serif Bengali', serif;
+            margin: 0;
+            padding: 10px;
+            background-color: #fdfbf7;
+            color: #2c2520;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container { max-width: 600px; margin: 0 auto; }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #8a2be2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #1e90ff;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-bottom: 2px dashed #1e90ff;
+            padding-bottom: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 2px solid #e6dfd5;
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.95);
+            background-color: #e6f2ff;
+            border-color: #1e90ff;
+        }
+
+        .english-letter {
+            font-family: 'Poppins', sans-serif;
+            font-size: 45px;
+            color: #1e90ff;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .word-img { font-size: 32px; display: block; margin: 5px 0; }
+        .word { font-family: 'Poppins', sans-serif; font-size: 16px; color: #2c2520; font-weight: bold; display: block; margin-bottom: 4px; }
+        .meaning { font-size: 12px; color: #666; display: block; }
+
+        .poem-box {
+            background-color: #ffffff;
+            border-left: 5px solid #1e90ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .poem-box:active { background-color: #e6f2ff; }
+        .poem-title { font-family: 'Poppins', sans-serif; font-size: 16px; color: #ff4500; font-weight: bold; margin-bottom: 3px; }
+        .poem-author { font-family: 'Poppins', sans-serif; font-size: 12px; color: #666; font-style: italic; margin-bottom: 8px; }
+        .poem-text { font-family: 'Poppins', sans-serif; font-size: 14px; color: #2c2520; line-height: 1.6; white-space: pre-line; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- মেইন মেনু লিংকে ক্লিক করলে বাংলা ভয়েস আসবে -->
+        <a href="index.html" class="back-btn" onclick="playSingleVoice(event, 'মেইন মেনু', 'bn')">⬅ Main Menu</a>
+
+        <div class="section-title">ইংরেজি অক্ষর ও শব্দার্থ (ছবি সহ)</div>
+        <div class="grid-container">
+            <div class="card" onclick="playCardVoice('A for Apple', 'Apple মানে আপেল')">
+                <span class="english-letter">Aa</span><span class="word-img">🍎</span><span class="word">Apple</span><span class="meaning">আপেল</span>
+            </div>
+            <div class="card" onclick="playCardVoice('B for Ball', 'Ball মানে বল')">
+                <span class="english-letter">Bb</span><span class="word-img">⚽</span><span class="word">Ball</span><span class="meaning">বল</span>
+            </div>
+            <div class="card" onclick="playCardVoice('C for Cat', 'Cat মানে বিড়াল')">
+                <span class="english-letter">Cc</span><span class="word-img">🐱</span><span class="word">Cat</span><span class="meaning">বিড়াল</span>
+            </div>
+            <div class="card" onclick="playCardVoice('D for Dog', 'Dog মানে কুকুর')">
+                <span class="english-letter">Dd</span><span class="word-img">🐶</span><span class="word">Dog</span><span class="meaning">কুকুর</span>
+            </div>
+            <div class="card" onclick="playCardVoice('E for Egg', 'Egg মানে ডিম')">
+                <span class="english-letter">Ee</span><span class="word-img">🥚</span><span class="word">Egg</span><span class="meaning">ডিম</span>
+            </div>
+            <div class="card" onclick="playCardVoice('F for Fish', 'Fish মানে মাছ')">
+                <span class="english-letter">Ff</span><span class="word-img">🐟</span><span class="word">Fish</span><span class="meaning">মাছ</span>
+            </div>
+            <div class="card" onclick="playCardVoice('G for Grapes', 'Grapes মানে আঙুর ফল')">
+                <span class="english-letter">Gg</span><span class="word-img">🍇</span><span class="word">Grapes</span><span class="meaning">আঙুর</span>
+            </div>
+            <div class="card" onclick="playCardVoice('H for Hen', 'Hen মানে মুরগি')">
+                <span class="english-letter">Hh</span><span class="word-img">🐔</span><span class="word">Hen</span><span class="meaning">মুরগি</span>
+            </div>
+            <div class="card" onclick="playCardVoice('I for Ice cream', 'Ice cream মানে আইসক্রিম')">
+                <span class="english-letter">Ii</span><span class="word-img">🍦</span><span class="word">Ice-cream</span><span class="meaning">আইসক্রিম</span>
+            </div>
+            <div class="card" onclick="playCardVoice('J for Jeep', 'Jeep মানে জিপ গাড়ি')">
+                <span class="english-letter">Jj</span><span class="word-img">🚙</span><span class="word">Jeep</span><span class="meaning">জিপ গাড়ি</span>
+            </div>
+            <div class="card" onclick="playCardVoice('K for Kite', 'Kite মানে ঘুড়ি')">
+                <span class="english-letter">Kk</span><span class="word-img">🪁</span><span class="word">Kite</span><span class="meaning">ঘুড়ি</span>
+            </div>
+            <div class="card" onclick="playCardVoice('L for Lion', 'Lion মানে সিংহ')">
+                <span class="english-letter">Ll</span><span class="word-img">🦁</span><span class="word">Lion</span><span class="meaning">সিংহ</span>
+            </div>
+            <div class="card" onclick="playCardVoice('M for Mango', 'Mango মানে আম')">
+                <span class="english-letter">Mm</span><span class="word-img">🥭</span><span class="word">Mango</span><span class="meaning">আম</span>
+            </div>
+            <div class="card" onclick="playCardVoice('N for Nest', 'Nest মানে পাখির বাসা')">
+                <span class="english-letter">Nn</span><span class="word-img">🪺</span><span class="word">Nest</span><span class="meaning">পাখির বাসা</span>
+            </div>
+            <div class="card" onclick="playCardVoice('O for Orange', 'Orange মানে কমলা লেবু')">
+                <span class="english-letter">Oo</span><span class="word-img">🍊</span><span class="word">Orange</span><span class="meaning">কমলা লেবু</span>
+            </div>
+            <div class="card" onclick="playCardVoice('P for Pen', 'Pen মানে কলম')">
+                <span class="english-letter">Pp</span><span class="word-img">🖊️</span><span class="word">Pen</span><span class="meaning">কলম</span>
+            </div>
+            <div class="card" onclick="playCardVoice('Q for Queen', 'Queen মানে রানি')">
+                <span class="english-letter">Qq</span><span class="word-img">👸</span><span class="word">Queen</span><span class="meaning">রানি</span>
+            </div>
+            <div class="card" onclick="playCardVoice('R for Rose', 'Rose মানে গোলাপ ফুল')">
+                <span class="english-letter">Rr</span><span class="word-img">🌹</span><span class="word">Rose</span><span class="meaning">গোलाब</span>
+            </div>
+            <div class="card" onclick="playCardVoice('S for Sun', 'Sun মানে সূর্য')">
+                <span class="english-letter">Ss</span><span class="word-img">☀️</span><span class="word">Sun</span><span class="meaning">সূর্য</span>
+            </div>
+            <div class="card" onclick="playCardVoice('T for Tiger', 'Tiger মানে বাঘ')">
+                <span class="english-letter">Tt</span><span class="word-img">🐯</span><span class="word">Tiger</span><span class="meaning">বাঘ</span>
+            </div>
+            <div class="card" onclick="playCardVoice('U for Umbrella', 'Umbrella মানে ছাতা')">
+                <span class="english-letter">Uu</span><span class="word-img">☂️</span><span class="word">Umbrella</span><span class="meaning">ছাতা</span>
+            </div>
+            <div class="card" onclick="playCardVoice('V for Van', 'Van মানে ভ্যান গাড়ি')">
+                <span class="english-letter">Vv</span><span class="word-img">🚐</span><span class="word">Van</span><span class="meaning">ভ্যান গাড়ি</span>
+            </div>
+            <div class="card" onclick="playCardVoice('W for Watch', 'Watch মানে ঘড়ি')">
+                <span class="english-letter">Ww</span><span class="word-img">⌚</span><span class="word">Watch</span><span class="meaning">ঘড়ি</span>
+            </div>
+            <div class="card" onclick="playCardVoice('X for Xylophone', 'Xylophone মানে বাদ্যযন্ত্র')">
+                <span class="english-letter">Xx</span><span class="word-img">🪵</span><span class="word">Xylophone</span><span class="meaning">বাদ্যযন্ত্র</span>
+            </div>
+            <div class="card" onclick="playCardVoice('Y for Yacht', 'Yacht মানে পালতোলা নৌকা')">
+                <span class="english-letter">Yy</span><span class="word-img">⛵</span><span class="word">Yacht</span><span class="meaning">পালতোলা নাও</span>
+            </div>
+            <div class="card" onclick="playCardVoice('Z for Zebra', 'Zebra মানে জেব্রা')">
+                <span class="english-letter">Zz</span><span class="word-img">🦓</span><span class="word">Zebra</span><span class="meaning">জেব্রা</span>
+            </div>
+        </div>
+
+        <div class="section-title">English Rhymes (ইংরেজি কবিতা)</div>
+
+        <!-- ছড়ার ওপর ক্লিক করলে পুরো ছড়াটি সঠিক ইংরেজি অ্যাক্সেন্টে আবৃত্তি করবে -->
+        <div class="poem-box" onclick="playSingleVoice(null, 'Twinkle, twinkle, little star, How I wonder what you are! Up above the world so high, Like a diamond in the sky.', 'en')">
+            <div class="poem-title">1. Twinkle Twinkle Little Star</div>
+            <div class="poem-author">Jane Taylor</div>
+            <div class="poem-text">Twinkle, twinkle, little star,
+            How I wonder what you are!
+            Up above the world so high,
+            Like a diamond in the sky.</div>
+        </div>
+
+        <div class="poem-box" onclick="playSingleVoice(null, 'Johny, Johny, Yes, Papa? Eating sugar? No, Papa. Telling lies? No, Papa. Open your mouth, Ha! Ha! Ha!', 'en')">
+            <div class="poem-title">2. Johny Johny</div>
+            <div class="poem-author">Nursery Rhyme</div>
+            <div class="poem-text">Johny, Johny, Yes, Papa?
+            Eating sugar? No, Papa.
+            Telling lies? No, Papa.
+            Open your mouth, Ha! Ha! Ha!</div>
+        </div>
+    </div>
+
+    <script>
+        let currentAudio = null;
+
+        // একক ভয়েস প্লে করার জন্য ফাংশন (কবিতা বা ব্যাক বাটনের জন্য)
+        function playSingleVoice(event, text, lang) {
+            if (event && event.currentTarget) {
+                event.preventDefault();
+                var redirectUrl = event.currentTarget.getAttribute('href');
+            }
+
+            if (currentAudio) { currentAudio.pause(); }
+
+            let langCode = (lang === 'en') ? 'en' : 'bn';
+            let audioUrl = "https://translate.google.com/translate_tts?ie=UTF-8&tl=" + langCode + "&client=tw-ob&q=" + encodeURIComponent(text);
+            
+            currentAudio = new Audio(audioUrl);
+            
+            currentAudio.onended = function() {
+                if (redirectUrl) { window.location.href = redirectUrl; }
+            };
+            currentAudio.onerror = function() {
+                if (redirectUrl) { window.location.href = redirectUrl; }
+            };
+            
+            currentAudio.play().catch(function() {
+                if (redirectUrl) { window.location.href = redirectUrl; }
+            });
+        }
+
+        // কার্ডের জন্য ডুয়াল ভয়েস মেকানিজম (আগে ইংরেজি উচ্চারণ, পরে বাংলা অর্থ)
+        function playCardVoice(enText, bnText) {
+            if (currentAudio) { currentAudio.pause(); }
+
+            // ১. ইংরেজি ভয়েস লিংক (US Accent)
+            let enUrl = "https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=" + encodeURIComponent(enText);
+            // ২. বাংলা অর্থ সম্বলিত ভয়েস লিংক
+            let bnUrl = "https://translate.google.com/translate_tts?ie=UTF-8&tl=bn&client=tw-ob&q=" + encodeURIComponent(bnText);
+
+            currentAudio = new Audio(enUrl);
+            currentAudio.play().then(() => {
+                // ইংরেজি বলা শেষ হলে স্বয়ংক্রিয়ভাবে বাংলা অর্থ প্লে হবে
+                currentAudio.onended = function() {
+                    currentAudio = new Audio(bnUrl);
+                    currentAudio.play();
+                };
+            }).catch(error => {
+                console.log("অডিও প্লে করতে সমস্যা হয়েছে:", error);
+            });
+        }
+    </script>
+</body>
+</html>

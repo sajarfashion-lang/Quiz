@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আদর্শ লিপি ও শিশু শিক্ষা</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Serif+Bengali:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Noto Serif Bengali', serif;
+            margin: 0;
+            padding: 10px;
+            background-color: #fdfbf7;
+            color: #2c2520;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* প্রচ্ছদ পাতা (Cover Page) */
+        .cover-page {
+            text-align: center;
+            border: 6px double #8a2be2;
+            padding: 30px 15px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        .cover-title {
+            font-size: 36px;
+            color: #8a2be2;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .cover-subtitle {
+            font-size: 20px;
+            color: #ff4500;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .cover-decor {
+            font-size: 40px;
+            margin: 15px 0;
+        }
+
+        .cover-footer {
+            font-size: 14px;
+            color: #4a3b32;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #ff4500;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-bottom: 2px dashed #ffa500;
+            padding-bottom: 5px;
+        }
+
+        /* মোবাইল স্ক্রিনের জন্য পারফেক্ট গ্রিড লেআউট (পাশাপাশি ২টি করে থাকবে) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        /* প্রতিটি অক্ষরের বক্স বা কার্ড স্টাইল */
+        .card {
+            background-color: #ffffff;
+            border: 2px solid #e6dfd5;
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.2s;
+        }
+
+        /* ক্লিকের সময় অ্যানিমেশন ও কালার চেঞ্জ ইফেক্ট */
+        .card:active {
+            transform: scale(0.95);
+            background-color: #f0e6ff;
+            border-color: #8a2be2;
+        }
+
+        .letter {
+            font-size: 45px;
+            color: #ff4500;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* আরবি হরফের বিশেষ বড় ফন্ট */
+        .arabic-letter {
+            font-family: 'Amiri', serif;
+            font-size: 52px;
+            color: #008080;
+            direction: rtl;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* ইংরেজি অক্ষরের ফন্ট */
+        .english-letter {
+            font-family: 'Poppins', sans-serif;
+            font-size: 45px;
+            color: #1e90ff;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* ছবির ইমোজি সাইজ */
+        .word-img {
+            font-size: 32px;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .word {
+            font-size: 16px;
+            color: #2c2520;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .meaning {
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+
+        /* সংখ্যার জন্য বিশেষ স্টাইল */
+        .num-big {
+            font-size: 50px;
+            color: #8a2be2;
+            font-weight: bold;
+            display: block;
+        }
+
+        /* ছড়ার সেকশন স্টাইল */
+        .poem-box {
+            background-color: #ffffff;
+            border-left: 5px solid #8a2be2;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .poem-box:active {
+            background-color: #f0e6ff;
+        }
+
+        .poem-title {
+            font-size: 16px;
+            color: #ff4500;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .poem-author {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .poem-text {
+            font-size: 14px;
+            color: #2c2520;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+        
+        .english-poem {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ১. প্রচ্ছদ পাতা (Cover Page) -->
+        <div class="cover-page">
+            <div class="cover-title">আদর্শ লিপি</div>
+            <div class="cover-subtitle">ও শিশু শিক্ষা বোদ্ধা</div>
+            <div class="cover-decor">✏️ 📖 🎒</div>
+            <div class="cover-footer">রচনায় ও প্রকাশনায়: সফিকুল ইসলাম</div>
+        </div>
+        
+        <!-- ২. বাংলা স্বরবর্ণ (১১টি) -->
+        <div class="section-title">বাংলা স্বরবর্ণ (১১টি)</div>
+        <div class="grid-container">
+            <div class="card" onclick="handleVoice('shor_o.mp3', 'অ, অজগর, অজগরটি আসছে তেরে', 'bn')">
+                <span class="letter">অ</span><span class="word">অজগর</span><span class="meaning">অজগরটি আসছে তেরে</span>
+            </div>
+            <div class="card" onclick="handleVoice('shor_a.mp3', 'আ, আম, আমটি আমি খাব পেড়ে', 'bn')">
+                <span class="letter">আ</span><span class="word">আম</span><span class="meaning">আমটি আমি খাব পেড়ে</span>
+            </div>
+            <div class="card" onclick="handleVoice('rhossho_i.mp3', 'ই, ইঁদুর, ইঁদুর ছানা ভয়ে মরে', 'bn')">
+                <span class="letter">ই</span><span class="word">ইঁদুর</span><span class="meaning">ইঁদুর ছানা ভয়ে মরে</span>
+            </div>
+            <div class="card" onclick="handleVoice('dirgho_i.mp3', 'ঈ, ঈগল, ঈগল পাখি পাছে ধরে', 'bn')">
+                <span class="letter">ঈ</span><span class="word">ঈগল</span><span class="meaning">ঈগল পাখি পাছে ধরে</span>
+            </div>
+            <div class="card" onclick="handleVoice('rhossho_u.mp3', 'উ, উট, উট চলেছে মুখটি তুলে', 'bn')">
+                <span class="letter">উ</span><span class="word">উট</span><span class="meaning">উট চলেছে মুখটি তুলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('dirgho_u.mp3', 'ঊ, ঊর্মি, ঊর্মি দোলে সাগর কোলে', 'bn')">
+                <span class="letter">ঊ</span><span class="word">ঊর্মি</span><span class="meaning">ঊর্মি দোলে সাগর কোলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('ri.mp3', 'ঋ, ঋষি, ঋষি মশাই বসেন ধ্যানে', 'bn')">
+                <span class="letter">ঋ</span><span class="word">ঋষি</span><span class="meaning">ঋষি মশাই বসেন ধ্যানে</span>
+            </div>
+            <div class="card" onclick="handleVoice('e.mp3', 'এ, একতারা, একতারাটি বাজে বেশ', 'bn')">
+                <span class="letter">এ</span><span class="word">একতারা</span><span class="meaning">একতারাটি বাজে বেশ</span>
+            </div>
+            <div class="card" onclick="handleVoice('oi.mp3', 'ঐ, ঐরাবত, ঐরাবতটি শান্ত অতি', 'bn')">
+                <span class="letter">ঐ</span><span class="word">ঐরাবত</span><span class="meaning">ঐরাবতটি শান্ত অতি</span>
+            </div>
+            <div class="card" onclick="handleVoice('o.mp3', 'ও, ওল, ওল খেও না ধরবে গলা', 'bn')">
+                <span class="letter">ও</span><span class="word">ওল</span><span class="meaning">ওল খেও না ধরবে গলা</span>
+            </div>
+            <div class="card" onclick="handleVoice('ou.mp3', 'ঔ, ঔষধ, ঔষধ খেতে মিছে বলা', 'bn')">
+                <span class="letter">ঔ</span><span class="word">ঔষধ</span><span class="meaning">ঔষধ খেতে মিছে বলা</span>
+            </div>
+        </div>
+
+        <!-- ৩. বাংলা ব্যঞ্জনবর্ণ (৩৯টি) -->
+        <div class="section-title">বাংলা ব্যঞ্জনবর্ণ (৩৯টি)</div>
+        <div class="grid-container">
+            <div class="card" onclick="handleVoice('ko.mp3', 'ক, কঙ্গু বা কাক, কাক ডাকে গাছে গাছে', 'bn')">
+                <span class="letter">ক</span><span class="word">কাক</span><span class="meaning">কাক ডাকে গাছে গাছে</span>
+            </div>
+            <div class="card" onclick="handleVoice('kho.mp3', 'খ, খরগোশ, খরগোশটি লাফিয়ে চলে', 'bn')">
+                <span class="letter">খ</span><span class="word">খরগোশ</span><span class="meaning">খরগোশটি লাফিয়ে চলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('go.mp3', 'গ, গরু, গরু মোদের দুধ দেয়', 'bn')">
+                <span class="letter">গ</span><span class="word">গরু</span><span class="meaning">গরু মোদের দুধ দেয়</span>
+            </div>
+            <div class="card" onclick="handleVoice('gho.mp3', 'ঘ, ঘোড়া, ঘোড়া ছোটে আলপথ দিয়ে', 'bn')">
+                <span class="letter">ঘ</span><span class="word">ঘোড়া</span><span class="meaning">ঘোড়া ছোটে আলপথ দিয়ে</span>
+            </div>
+            <div class="card" onclick="handleVoice('umo.mp3', 'ঙ, ব্যাঙ, ব্যাঙ ডাকে বর্ষাকালে', 'bn')">
+                <span class="letter">ঙ</span><span class="word">ব্যাঙ</span><span class="meaning">ব্যাঙ ডাকে বর্ষাকালে</span>
+            </div>
+            <div class="card" onclick="handleVoice('cho.mp3', 'চ, চোখ, চোখ দিয়ে আমরা দেখি', 'bn')">
+                <span class="letter">চ</span><span class="word">চোখ</span><span class="meaning">চোখ দিয়ে আমরা দেখি</span>
+            </div>
+            <div class="card" onclick="handleVoice('chho.mp3', 'ছ, ছাতা, ছাতা লাগে বৃষ্টি হলে', 'bn')">
+                <span class="letter">ছ</span><span class="word">ছাতা</span><span class="meaning">ছাতা লাগে বৃষ্টি হলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('jo.mp3', 'জ, জাহাজ, জাহাজ ভাসে সাগর জলে', 'bn')">
+                <span class="letter">জ</span><span class="word">জাহাজ</span><span class="meaning">জাহাজ ভাসে সাগর জলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('jho.mp3', 'ঝ, ঝাড়ু, ঝাড়ু দিয়ে ঘর সাফ করো', 'bn')">
+                <span class="letter">ঝ</span><span class="word">ঝাড়ু</span><span class="meaning">ঝাড়ু দিয়ে ঘর সাফ করো</span>
+            </div>
+            <div class="card" onclick="handleVoice('neo.mp3', 'ঞ, মিঞা, মিঞা ভাই গান গায়', 'bn')">
+                <span class="letter">ঞ</span><span class="word">মিঞা</span><span class="meaning">মিঞা ভাই গান গায়</span>
+            </div>
+            <div class="card" onclick="handleVoice('to.mp3', 'ট, টমেটো, টমেটো দেখতে ভারী সুন্দর', 'bn')">
+                <span class="letter">ট</span><span class="word">টমেটো</span><span class="meaning">টমেটো দেখতে ভারী সুন্দর</span>
+            </div>
+            <div class="card" onclick="handleVoice('tho.mp3', 'ঠ, ঠাকুমা, ঠাকুমার ঝুলি গল্পের খনি', 'bn')">
+                <span class="letter">ঠ</span><span class="word">ঠাকুমা</span><span class="meaning">ঠাকুমার ঝুলি গল্পের খনি</span>
+            </div>
+            <div class="card" onclick="handleVoice('do.mp3', 'ড, ডাব, ডাবের জল মিষ্টি বড়', 'bn')">
+                <span class="letter">ড</span><span class="word">ডাব</span><span class="meaning">ডাবের জল মিষ্টি বড়</span>
+            </div>
+            <div class="card" onclick="handleVoice('dho.mp3', 'ঢ, ঢোল, ঢোল বাজে তাক ধুম ধুম', 'bn')">
+                <span class="letter">ঢ</span><span class="word">ঢোল</span><span class="meaning">ঢোল বাজে তাক ধুম ধুম</span>
+            </div>
+            <div class="card" onclick="handleVoice('murdhono_no.mp3', 'ণ, হরিণ, হরিণ থাকে সুন্দরবনে', 'bn')">
+                <span class="letter">ণ</span><span class="word">হরিণ</span><span class="meaning">হরিণ থাকে সুন্দরবনে</span>
+            </div>
+            <div class="card" onclick="handleVoice('to_bengali.mp3', 'ত, তলোয়ার, তলোয়ার ঝলে বীরের হাতে', 'bn')">
+                <span class="letter">ত</span><span class="word">তলোয়ার</span><span class="meaning">তলোয়ার ঝলে বীরের হাতে</span>
+            </div>
+            <div class="card" onclick="handleVoice('tho_bengali.mp3', 'থ, থালা, থালা ভরা ভাত আছে', 'bn')">
+                <span class="letter">থ</span><span class="word">থালা</span><span class="meaning">থালা ভরা ভাত আছে</span>
+            </div>
+            <div class="card" onclick="handleVoice('do_bengali.mp3', 'দ, দোয়াত, দোয়াত্তে কালি আছে', 'bn')">
+                <span class="letter">দ</span><span class="word">দোয়াত</span><span class="meaning">দোয়াত্তে কালি আছে</span>
+            </div>
+            <div class="card" onclick="handleVoice('dho_bengali.mp3', 'ধ, ধান, ধান পেকেছে মাঠের পরে', 'bn')">
+                <span class="letter">ধ</span><span class="word">ধান</span><span class="meaning">ধান পেকেছে মাঠের পরে</span>
+            </div>
+            <div class="card" onclick="handleVoice('donto_no.mp3', 'ন, নদী, নদী চলে আপন বেগে', 'bn')">
+                <span class="letter">ন</span><span class="word">নদী</span><span class="meaning">নদী চলে আপন বেগে</span>
+            </div>
+            <div class="card" onclick="handleVoice('po.mp3', 'প, পাখি, পাখি গায় মধুর গান', 'bn')">
+                <span class="letter">প</span><span class="word">পাখি</span><span class="meaning">পাখি গায় মধুর গান</span>
+            </div>
+            <div class="card" onclick="handleVoice('fo.mp3', 'ফ, ফুল, ফুল ফুটেছে বাগানে', 'bn')">
+                <span class="letter">ফ</span><span class="word">ফুল</span><span class="meaning">ফুল ফুটেছে বাগানে</span>
+            </div>
+            <div class="card" onclick="handleVoice('bo.mp3', 'ব, বই, বই পড়লে জ্ঞান বাড়ে', 'bn')">
+                <span class="letter">ব</span><span class="word">বই</span><span class="meaning">বই পড়লে জ্ঞান বাড়ে</span>
+            </div>
+            <div class="card" onclick="handleVoice('vho.mp3', 'ভ, ভালুক, ভালুক নাচে মন্থর গতিতে', 'bn')">
+                <span class="letter">ভ</span><span class="word">ভালুক</span><span class="meaning">ভালুক নাচে মন্থর গতিতে</span>
+            </div>
+            <div class="card" onclick="handleVoice('mo.mp3', 'ম, ময়ূর, ময়ূর নাচে পেখম তুলে', 'bn')">
+                <span class="letter">ম</span><span class="word">ময়ূর</span><span class="meaning">ময়ূর নাচে পেখম তুলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('za.mp3', 'য, যাতা, যাতা ঘোরে হাতের জোরে', 'bn')">
+                <span class="letter">য</span><span class="word">যাতা</span><span class="meaning">যাতা ঘোরে হাতের জোরে</span>
+            </div>
+            <div class="card" onclick="handleVoice('ro.mp3', 'র, রাজহাঁস, রাজহাঁসটির গলা বড়', 'bn')">
+                <span class="letter">র</span><span class="word">রাজহাঁস</span><span class="meaning">রাজহাঁসটির গলা বড়</span>
+            </div>
+            <div class="card" onclick="handleVoice('lo.mp3', 'ল, লেবু, লেবুর রসে ভিটামিন আছে', 'bn')">
+                <span class="letter">ল</span><span class="word">লেবু</span><span class="meaning">লেবুর রসে ভিটামিন আছে</span>
+            </div>
+            <div class="card" onclick="handleVoice('bo_silent.mp3', 'ব, বাঁশি, বাঁশির সুরে মন ভোলে', 'bn')">
+                <span class="letter">ব</span><span class="word">বাঁশি</span><span class="meaning">বাঁশির সুরে মন ভোলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('talobbo_sho.mp3', 'শ, শাপলা, শাপলা মোদের জাতীয় ফুল', 'bn')">
+                <span class="letter">শ</span><span class="word">শাপলা</span><span class="meaning">শাপলা মোদের জাতীয় ফুল</span>
+            </div>
+            <div class="card" onclick="handleVoice('murdhono_sho.mp3', 'ষ, ষাঁড়, ষাঁড়টি এলো তেড়ে ভাই', 'bn')">
+                <span class="letter">ষ</span><span class="word">ষাঁড়</span><span class="meaning">ষাঁড়টি এলো তেড়ে ভাই</span>
+            </div>
+            <div class="card" onclick="handleVoice('donto_sho.mp3', 'স, সিংহ, সিংহ হলো বনের রাজা', 'bn')">
+                <span class="letter">স</span><span class="word">সিংহ</span><span class="meaning">সিংহ হলো বনের রাজা</span>
+            </div>
+            <div class="card" onclick="handleVoice('ho.mp3', 'হ, হাঁস, হাঁস চলেছে পুকুর পানে', 'bn')">
+                <span class="letter">হ</span><span class="word">হাঁস</span><span class="meaning">হাঁস চলেছে পুকুর পানে</span>
+            </div>
+            <div class="card" onclick="handleVoice('dho_rro.mp3', 'ড়, পাহাড়, পাহাড় চূড়া মেঘের দেশে', 'bn')">
+                <span class="letter">ড়</span><span class="word">পাহাড়</span><span class="meaning">পাহাড় চূড়া মেঘের দেশে</span>
+            </div>
+            <div class="card" onclick="handleVoice('dho_rhho.mp3', 'ढ़, আষাঢ়, আষাঢ় মাসে বৃষ্টি নামে', 'bn')">
+                <span class="letter">ढ़</span><span class="word">আষাঢ়</span><span class="meaning">আষাঢ় মাসে বৃষ্টি নামে</span>
+            </div>
+            <div class="card" onclick="handleVoice('onto_yo.mp3', 'য়, ময়না, ময়না পাখি কথা কয়', 'bn')">
+                <span class="letter">য়</span><span class="word">ময়না</span><span class="meaning">ময়না পাখি কথা কয়</span>
+            </div>
+            <div class="card" onclick="handleVoice('khondo_to.mp3', 'ৎ, মৎস্য, মৎস্য ধরি নদীর জলে', 'bn')">
+                <span class="letter">ৎ</span><span class="word">মৎস্য</span><span class="meaning">মৎস্য ধরি নদীর জলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('onussor.mp3', 'ং, সংবাদ, সংবাদ পড়ি প্রতিদিন', 'bn')">
+                <span class="letter">ং</span><span class="word">সংবাদ</span><span class="meaning">সংবাদ পড়ি প্রতিদিন</span>
+            </div>
+            <div class="card" onclick="handleVoice('bisorgo.mp3', 'ঃ, দুঃখ, দুঃখী জনের পাশে দাঁড়াও', 'bn')">
+                <span class="letter">ঃ</span><span class="word">দুঃখ</span><span class="meaning">দুঃখী জনের পাশে দাঁড়াও</span>
+            </div>
+            <div class="card" onclick="handleVoice('chondrobindu.mp3', 'ঁ, চাঁদ, চাঁদ উঠেছে গগন কোণে', 'bn')">
+                <span class="letter">ঁ</span><span class="word">চাঁদ</span><span class="meaning">চাঁদ উঠেছে গগন কোণে</span>
+            </div>
+        </div>
+
+        <!-- নতুন সেকশন: আরবি হরফ ও শব্দার্থ (২৯টি) -->
+        <div class="section-title">আরবি হরফ ও শব্দার্থ (২৯টি)</div>
+        <div class="grid-container">
+            <div class="card" onclick="handleVoice('ar_alif.mp3', 'আলিফ, আলিফুন তে আসাদুন, আসাদুন মানে সিংহ', 'bn')">
+                <span class="arabic-letter">ا</span><span class="word">আলিফ (أسد)</span><span class="meaning">আসাদুন - সিংহ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_ba.mp3', 'বা, বাউন তে বাইতুন, বাইতুন মানে ঘর', 'bn')">
+                <span class="arabic-letter">ب</span><span class="word">বা (بيت)</span><span class="meaning">বাইতুন - ঘর</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_ta.mp3', 'তা, তাউন তে তাজুন, তাজুন মানে মুকুট', 'bn')">
+                <span class="arabic-letter">ت</span><span class="word">তা (تاج)</span><span class="meaning">তাজুন - মুকুট</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_sa.mp3', 'সা, সাউন তে সামারুন, সামারুন মানে ফল', 'bn')">
+                <span class="arabic-letter">ث</span><span class="word">সা (ثمر)</span><span class="meaning">সামারুন - ফল</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_jim.mp3', 'জীম, জীমুন তে জামালুন, জামালুন মানে উট', 'bn')">
+                <span class="arabic-letter">ج</span><span class="word">জীম (جمل)</span><span class="meaning">জামালুন - উট</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_ha.mp3', 'হা, হাউন তে হাদিকাতুন, হাদিকাতুন মানে বাগান', 'bn')">
+                <span class="arabic-letter">ح</span><span class="word">হা (حديقة)</span><span class="meaning">হাদিকাতুন - বাগান</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_kha.mp3', 'খা, খাউন তে খুবজুন, খুবজুন মানে রুটি', 'bn')">
+                <span class="arabic-letter">خ</span><span class="word">খা (خبز)</span><span class="meaning">খুবজুন - রুটি</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_dal.mp3', 'দাল, দালুন তে দিউকোন, দিউকোন মানে মোরগ', 'bn')">
+                <span class="arabic-letter">د</span><span class="word">দাল (ديك)</span><span class="meaning">দিউকোন - মোরগ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_zal.mp3', 'জাল, জালুন তে জাহাবুন, জাহাবুন মানে সোনা', 'bn')">
+                <span class="arabic-letter">ذ</span><span class="word">জাল (ذهب)</span><span class="meaning">জাহাবুন - সোনা</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_ro.mp3', 'র, রউন তে রাজুলুন, রাজুলুন মানে মানুষ', 'bn')">
+                <span class="arabic-letter">ر</span><span class="word">র (رجل)</span><span class="meaning">রাজুলুন - মানুষ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_za.mp3', 'যা, যাউন তে জাহরাতুন, জাহরাতুন মানে ফুল', 'bn')">
+                <span class="arabic-letter">ز</span><span class="word">যা (زهرة)</span><span class="meaning">জাহরাতুন - ফুল</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_sin.mp3', 'সীন, সীনুন তে সামাকুন, সামাকুন মানে মাছ', 'bn')">
+                <span class="arabic-letter">س</span><span class="word">সীন (سمك)</span><span class="meaning">সামাকুন - মাছ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_shin.mp3', 'শীন, শীনুন তে শামসুন, শামসুন মানে সূর্য', 'bn')">
+                <span class="arabic-letter">ش</span><span class="word">শীন (شمس)</span><span class="meaning">শামসুন - সূর্য</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_sod.mp3', 'ছদ, ছদুন তে ছাবুনুন, ছাবুনুন মানে সাবান', 'bn')">
+                <span class="arabic-letter">ص</span><span class="word">ছদ (صابون)</span><span class="meaning">ছাবুনুন - সাবান</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_dod.mp3', 'দদ, দদুন তে দিয়াউন, দিয়াউন মানে আলো', 'bn')">
+                <span class="arabic-letter">ض</span><span class="word">দদ (ضياء)</span><span class="meaning">দিয়াউন - আলো</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_to.mp3', 'ত, তউন তে তিফ্লুন, তিফ্লুন মানে শিশু', 'bn')">
+                <span class="arabic-letter">ط</span><span class="word">ত (طفل)</span><span class="meaning">তিফ্লুন - শিশু</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_zo.mp3', 'জ, জউন তে জিললুন, জিললুন মানে ছায়া', 'bn')">
+                <span class="arabic-letter">ظ</span><span class="word">জ (ظل)</span><span class="meaning">জিললুন - ছায়া</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_াইন.mp3', 'আইন, আইনুন তে আইনুন, আইনুন মানে চোখ', 'bn')">
+                <span class="arabic-letter">ع</span><span class="word">আইন (عين)</span><span class="meaning">আইনুন - চোখ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_ghain.mp3', 'গাইন, গাইনুন তে গুরাবুন, গুরাবুন মানে কাক', 'bn')">
+                <span class="arabic-letter">غ</span><span class="word">গাইন (غراب)</span><span class="meaning">গুরাবুন - কাক</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_fa.mp3', 'ফা, ফাউন তে ফীলুন, ফীলুন মানে হাতি', 'bn')">
+                <span class="arabic-letter">ف</span><span class="word">ফা (فيل)</span><span class="meaning">ফীলুন - হাতি</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_qof.mp3', 'কফ, কফুন তে কলামুন, কলামুন মানে কলম', 'bn')">
+                <span class="arabic-letter">ق</span><span class="word">কফ (قلم)</span><span class="meaning">কলামুন - কলম</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_kaf.mp3', 'কাফ, কাফুন তে কিতাবুন, কিতাবুন মানে বই', 'bn')">
+                <span class="arabic-letter">ك</span><span class="word">কাফ (كتاب)</span><span class="meaning">কিতাবুন - বই</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_lam.mp3', 'লাম, লামুন তে লাবানুন, লাবানুন মানে দুধ', 'bn')">
+                <span class="arabic-letter">ل</span><span class="word">লাম (لبن)</span><span class="meaning">লাবানুন - দুধ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_mim.mp3', 'মীম, মীমুন তে মাউন, মাউন মানে পানি', 'bn')">
+                <span class="arabic-letter">م</span><span class="word">মীম (ماء)</span><span class="meaning">মাউন - পানি</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_nun.mp3', 'নুন, নুনুন তে নাজমুন্, নাজমুন্ মানে তারকা', 'bn')">
+                <span class="arabic-letter">ن</span><span class="word">নুন (نجم)</span><span class="meaning">নাজমুন্ - তারকা</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_waw.mp3', 'ওয়াও, ওয়াওউন তে ওয়ালাদুন, ওয়ালাদুন মানে ছেলে', 'bn')">
+                <span class="arabic-letter">و</span><span class="word">ওয়াও (ولد)</span><span class="meaning">ওয়ালাদুন - ছেলে</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_ha_big.mp3', 'হা, হাউন তে হিলালুন, হিলালুন মানে নতুন চাঁদ', 'bn')">
+                <span class="arabic-letter">ه</span><span class="word">হা (هلال)</span><span class="meaning">হিলালুন - নতুন চাঁদ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_lam_alif.mp3', 'লাম আলিফ', 'bn')">
+                <span class="arabic-letter">لا</span><span class="word">লাম আলিফ</span><span class="meaning">লা - না</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_hamza.mp3', 'হামজাহ', 'bn')">
+                <span class="arabic-letter">ء</span><span class="word">হামজাহ</span><span class="meaning">চিহ্ন বিশেষ</span>
+            </div>
+            <div class="card" onclick="handleVoice('ar_ya.mp3', 'য়া, য়াউন তে ইয়াদুন, ইয়াদুন মানে হাত', 'bn')">
+                <span class="arabic-letter">ي</span><span class="word">য়া (يد)</span><span class="meaning">ইয়াদুন - হাত</span>
+            </div>
+        </div>
+
+        <!-- নতুন সেকশন: ইংরেজি অক্ষর ও শব্দার্থ ছবি (Emoji) সহ -->
+        <div class="section-title">ইংরেজি অক্ষর ও শব্দার্থ (ছবি সহ)</div>
+        <div class="grid-container">
+            <div class="card" onclick="handleVoice('en_a.mp3', 'A for Apple, Apple মানে আপেল', 'en')">
+                <span class="english-letter">Aa</span><span class="word-img">🍎</span><span class="word">Apple</span><span class="meaning">আপেল</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_b.mp3', 'B for Ball, Ball মানে বল', 'en')">
+                <span class="english-letter">Bb</span><span class="word-img">⚽</span><span class="word">Ball</span><span class="meaning">বল</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_c.mp3', 'C for Cat, Cat মানে বিড়াল', 'en')">
+                <span class="english-letter">Cc</span><span class="word-img">🐱</span><span class="word">Cat</span><span class="meaning">বিড়াল</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_d.mp3', 'D for Dog, Dog মানে কুকুর', 'en')">
+                <span class="english-letter">Dd</span><span class="word-img">🐶</span><span class="word">Dog</span><span class="meaning">কুকুর</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_e.mp3', 'E for Egg, Egg মানে ডিম', 'en')">
+                <span class="english-letter">Ee</span><span class="word-img">🥚</span><span class="word">Egg</span><span class="meaning">ডিম</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_f.mp3', 'F for Fish, Fish মানে মাছ', 'en')">
+                <span class="english-letter">Ff</span><span class="word-img">🐟</span><span class="word">Fish</span><span class="meaning">মাছ</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_g.mp3', 'G for Grapes, Grapes মানে আঙুর ফল', 'en')">
+                <span class="english-letter">Gg</span><span class="word-img">🍇</span><span class="word">Grapes</span><span class="meaning">আঙুর</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_h.mp3', 'H for Hen, Hen মানে মুরগি', 'en')">
+                <span class="english-letter">Hh</span><span class="word-img">🐔</span><span class="word">Hen</span><span class="meaning">মুরগি</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_i.mp3', 'I for Ice-cream, Ice-cream মানে আইসক্রিম', 'en')">
+                <span class="english-letter">Ii</span><span class="word-img">🍦</span><span class="word">Ice-cream</span><span class="meaning">আইসক্রিম</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_j.mp3', 'J for Jeep, Jeep মানে জিপ গাড়ি', 'en')">
+                <span class="english-letter">Jj</span><span class="word-img">🚙</span><span class="word">Jeep</span><span class="meaning">জিপ গাড়ি</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_k.mp3', 'K for Kite, Kite মানে ঘুড়ি', 'en')">
+                <span class="english-letter">Kk</span><span class="word-img">🪁</span><span class="word">Kite</span><span class="meaning">ঘুড়ি</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_l.mp3', 'L for Lion, Lion মানে সিংহ', 'en')">
+                <span class="english-letter">Ll</span><span class="word-img">🦁</span><span class="word">Lion</span><span class="meaning">সিংহ</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_m.mp3', 'M for Mango, Mango মানে আম', 'en')">
+                <span class="english-letter">Mm</span><span class="word-img">🥭</span><span class="word">Mango</span><span class="meaning">আম</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_n.mp3', 'N for Nest, Nest মানে পাখির বাসা', 'en')">
+                <span class="english-letter">Nn</span><span class="word-img">🪺</span><span class="word">Nest</span><span class="meaning">পাখির বাসা</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_o.mp3', 'O for Orange, Orange मतलब কমলে লেবু', 'en')">
+                <span class="english-letter">Oo</span><span class="word-img">🍊</span><span class="word">Orange</span><span class="meaning">কমলা লেবু</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_p.mp3', 'P for Pen, Pen মানে কলম', 'en')">
+                <span class="english-letter">Pp</span><span class="word-img">🖊️</span><span class="word">Pen</span><span class="meaning">কলম</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_q.mp3', 'Q for Queen, Queen মানে রানি', 'en')">
+                <span class="english-letter">Qq</span><span class="word-img">👸</span><span class="word">Queen</span><span class="meaning">রানি</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_r.mp3', 'R for Rose, Rose মানে গোলাপ ফুল', 'en')">
+                <span class="english-letter">Rr</span><span class="word-img">🌹</span><span class="word">Rose</span><span class="meaning">গোলাপ</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_s.mp3', 'S for Sun, Sun মানে সূর্য', 'en')">
+                <span class="english-letter">Ss</span><span class="word-img">☀️</span><span class="word">Sun</span><span class="meaning">সূর্য</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_t.mp3', 'T for Tiger, Tiger মানে বাঘ', 'en')">
+                <span class="english-letter">Tt</span><span class="word-img">🐯</span><span class="word">Tiger</span><span class="meaning">বাঘ</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_u.mp3', 'U for Umbrella, Umbrella মানে ছাতা', 'en')">
+                <span class="english-letter">Uu</span><span class="word-img">☂️</span><span class="word">Umbrella</span><span class="meaning">ছাতা</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_v.mp3', 'V for Van, Van মানে ভ্যান গাড়ি', 'en')">
+                <span class="english-letter">Vv</span><span class="word-img">🚐</span><span class="word">Van</span><span class="meaning">ভ্যান গাড়ি</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_w.mp3', 'W for Watch, Watch মানে ঘড়ি', 'en')">
+                <span class="english-letter">Ww</span><span class="word-img">⌚</span><span class="word">Watch</span><span class="meaning">ঘড়ি</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_x.mp3', 'X for Xylophone, Xylophone মানে জলতরঙ্গ বা বাদ্যযন্ত্র', 'en')">
+                <span class="english-letter">Xx</span><span class="word-img">🪵</span><span class="word">Xylophone</span><span class="meaning">বাদ্যযন্ত্র</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_y.mp3', 'Y for Yacht, Yacht মানে পালতোলা নৌকা', 'en')">
+                <span class="english-letter">Yy</span><span class="word-img">⛵</span><span class="word">Yacht</span><span class="meaning">পালতোলা নাও</span>
+            </div>
+            <div class="card" onclick="handleVoice('en_z.mp3', 'Z for Zebra, Zebra মানে জেব্রা', 'en')">
+                <span class="english-letter">Zz</span><span class="word-img">🦓</span><span class="word">Zebra</span><span class="meaning">জেব্রা</span>
+            </div>
+        </div>
+
+        <!-- ৪. সংখ্যা ও গণনা শিক্ষা (১ - ১০) -->
+        <div class="section-title">সংখ্যা ও গণনা (১ - ১০)</div>
+        <div class="grid-container">
+            <div class="card" onclick="handleVoice('num_1.mp3', '১, এক, ওয়ান', 'bn')">
+                <span class="num-big">১</span><span class="word">এক (1)</span><span class="meaning">One</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_2.mp3', '২, দুই, টু', 'bn')">
+                <span class="num-big">২</span><span class="word">দুই (2)</span><span class="meaning">Two</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_3.mp3', '৩, তিন, থ্রি', 'bn')">
+                <span class="num-big">৩</span><span class="word">তিন (3)</span><span class="meaning">Three</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_4.mp3', '৪, চার, ফোর', 'bn')">
+                <span class="num-big">৪</span><span class="word">চার (4)</span><span class="meaning">Four</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_5.mp3', '৫, পাঁচ, ফাইভ', 'bn')">
+                <span class="num-big">৫</span><span class="word">পাঁচ (5)</span><span class="meaning">Five</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_6.mp3', '৬, ছয়, সিক্স', 'bn')">
+                <span class="num-big">৬</span><span class="word">ছয় (6)</span><span class="meaning">Six</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_7.mp3', '৭, সাত, সেভেন', 'bn')">
+                <span class="num-big">৭</span><span class="word">সাত (7)</span><span class="meaning">Seven</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_8.mp3', '৮, আট, এইট', 'bn')">
+                <span class="num-big">৮</span><span class="word">আট (8)</span><span class="meaning">Eight</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_9.mp3', '৯, নয়, নাইন', 'bn')">
+                <span class="num-big">৯</span><span class="word">নয় (9)</span><span class="meaning">Nine</span>
+            </div>
+            <div class="card" onclick="handleVoice('num_10.mp3', '১০, দশ, টেন', 'bn')">
+                <span class="num-big">১০</span><span class="word">দশ (10)</span><span class="meaning">Ten</span>
+            </div>
+        </div>
+
+        <!-- ৫. ছোটদের মিষ্টি ছড়া -->
+        <div class="section-title">ছোটদের মিষ্টি ছড়া (বাংলা)</div>
+        
+        <div class="poem-box" onclick="handleVoice('chhora_ata_gachhe.mp3', 'আতা গাছে তোতা পাখি, ডালিম গাছে মৌ। এত ডাকি তবু কথা, কও না কেন বউ?', 'bn')">
+            <div class="poem-title">১. আতা গাছে তোতা পাখি</div>
+            <div class="poem-author">সংগৃহীত</div>
+            <div class="poem-text">আতা গাছে তোতা পাখি, ডালিম গাছে মৌ।
+            এত ডাকি তবু কথা, কও না কেন বউ?</div>
+        </div>
+
+        <div class="poem-box" onclick="handleVoice('chhora_hattimatim.mp3', 'হাট্টিমাটিম টিম, তারা মাঠে পাড়ে ডিম। তাদের খাড়া দুটো শিং, তারা হাট্টিমাটিম টিম।', 'bn')">
+            <div class="poem-title">২. হাট্টিমাটিম টিম</div>
+            <div class="poem-author">সংগৃহীত</div>
+            <div class="poem-text">হাট্টিমাটিম টিম, তারা মাঠে পাড়ে ডিম।
+            তাদের খাড়া দুটো শিং, তারা হাট্টিমাটিম টিম।</div>
+        </div>
+
+        <div class="poem-box" onclick="handleVoice('chhora_bhor_holo.mp3', 'ভোর হলো দোর খোল, খুকুমণি ওঠ রে! ঐ ডাকে জুঁই-শাখে, ফুল-খুকী ছোট রে! খুলী হাল তুলী পাল, ঐ তরী চলল! এই বার এই বার, খুকু চোখ চাইল!', 'bn')">
+            <div class="poem-title">৩. ভোর হলো দোর খোল</div>
+            <div class="poem-author">কাজী নজরুল ইসলাম</div>
+            <div class="poem-text">ভোর হলো দোর খোল, খুকুমণি ওঠ রে!
+            ঐ ডাকে জুঁই-শাখে, ফুল-খুকী ছোট রে!
+            খুলী হাল তুলী পাল, ঐ তরী চলল!
+            এই বার এই বার, খুকু চোখ চাইল!</div>
+        </div>
+
+        <div class="poem-box" onclick="handleVoice('chhora_amader_choto_nodi.mp3', 'আমাদের ছোট নদী চলে বাঁকে বাঁকে, বৈশাখ মাসে তার হাঁটু জল থাকে। পার হয়ে যায় গোরু, পার হয় গাড়ি, দুই ধার উঁচু তার, ঢালু তার পাড়ি।', 'bn')">
+            <div class="poem-title">৪. আমাদের ছোট নদী</div>
+            <div class="poem-author">রবীন্দ্রনাথ ঠাকুর</div>
+            <div class="poem-text">আমাদের ছোট নদী চলে বাঁকে বাঁকে,
+            বৈশাখ মাসে তার হাঁটু জল থাকে।
+            পার হয়ে যায় গোরু, পার হয় গাড়ি,
+            দুই ধার উঁচু তার, ঢালু তার পাড়ি।</div>
+        </div>
+
+        <!-- নতুন সেকশন: ইংরেজি কবিতা (English Poems) -->
+        <div class="section-title">English Rhymes (ইংরেজি কবিতা)</div>
+
+        <div class="poem-box english-poem" onclick="handleVoice('poem_twinkle.mp3', 'Twinkle, twinkle, little star, How I wonder what you are! Up above the world so high, Like a diamond in the sky.', 'en')">
+            <div class="poem-title">1. Twinkle Twinkle Little Star</div>
+            <div class="poem-author">Jane Taylor</div>
+            <div class="poem-text">Twinkle, twinkle, little star,
+            How I wonder what you are!
+            Up above the world so high,
+            Like a diamond in the sky.</div>
+        </div>
+
+        <div class="poem-box english-poem" onclick="handleVoice('poem_johny.mp3', 'Johny, Johny, Yes, Papa? Eating sugar? No, Papa. Telling lies? No, Papa. Open your mouth, Ha! Ha! Ha!', 'en')">
+            <div class="poem-title">2. Johny Johny</div>
+            <div class="poem-author">Nursery Rhyme</div>
+            <div class="poem-text">Johny, Johny, Yes, Papa?
+            Eating sugar? No, Papa.
+            Telling lies? No, Papa.
+            Open your mouth, Ha! Ha! Ha!</div>
+        </div>
+
+    </div>
+
+    <!-- ইন্টেলিজেন্ট অডিও ও ভয়েস স্ক্রিপ্ট লজিক -->
+    <script>
+        let currentAudio = null;
+
+        function handleVoice(audioFile, fallbackText, langCode) {
+            // ১. চলমান যেকোনো অডিও বা অটোমেটেড স্পীচ সাথে সাথে বন্ধ করবে
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            window.speechSynthesis.cancel();
+
+            // ২. প্রথমে কাস্টম অডিও ফাইল লোড ও প্লে করার চেষ্টা করবে
+            currentAudio = new Audio('audio/' + audioFile);
+            
+            let playPromise = currentAudio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.catch(function(error) {
+                    console.log("Custom audio file missing, switching to Speech Synthesis fallback.");
+                    // ৩. ফাইল না পাওয়া গেলে স্বয়ংক্রিয় ব্যাকআপ হিসেবে নির্দিষ্ট ভাষার টেক্সট-টু-স্পীচ চালু হবে
+                    speakTextFallback(fallbackText, langCode);
+                });
+            }
+        }
+
+        // ব্যাকআপ ক্লিয়ার ভয়েস ফাংশন (টেক্সট-টু-স্পীচ ল্যাঙ্গুয়েজ ডিটেকশন সহ)
+        function speakTextFallback(text, lang) {
+            let speech = new SpeechSynthesisUtterance();
+            speech.text = text;
+            
+            // ভাষা নির্ধারণ (ইংরেজি নাকি বাংলা)
+            if(lang === 'en') {
+                speech.lang = 'en-US';
+                speech.rate = 0.80; // ইংরেজি স্পষ্ট বোঝার জন্য একটু স্লো করা
+            } else {
+                speech.lang = 'bn-BD';
+                speech.rate = 0.85;
+            }
+            
+            speech.pitch = 1.1; // শিশুদের উপযোগী কিউট ভয়েস টোন
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+
+</body>
+</html>
